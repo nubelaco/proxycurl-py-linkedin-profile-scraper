@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+
+from jinja2 import Template
+import json
+import os
+import textwrap
+
+class Cli():
+    def generate_code(self):
+        with open('codegen/templates/api_mapping.json') as f1:
+            api_mapping = json.load(f1)
+            with open(f'codegen/templates/linkedin_mapping.json') as f2:
+                source_mapping = json.load(f2)
+                namespaces = self._mapping_namespace(
+                    api_mapping,
+                    source_mapping
+                )
+
+        # generate TypedDict response model
+        self._generate_response_model(api_mapping['classes'])
+
+        # generate namespace by concurrent type
+        for concurrent_type in ['gevent', 'twisted', 'asyncio']:
+            self._generate_init(
+                concurrent_type=concurrent_type
+            )
+            self._generate_library(
+                concurrent_type,
+                namespaces
+            )
+
+    def _mapping_namespace(
+        self,
+        api_mapping: dict,
+        source_mapping: dict
+    ):
+        namespaces = dict()
+        for namespace in source_mapping.keys():
+            ns_as_list = namespace.split('.')
+            if len(ns_as_list) == 1:
+                ns_as_list = ['common', 'default', namespace]
+            if len(ns_as_list) != 3:
+                continue
+            if ns_as_list[0] not in namespaces:
+                namespaces[ns_as_list[0]] = {
+                    'packages': {},
+                    'result_classes': [],
+                }
+            if ns_as_list[1] not in namespaces[ns_as_list[0]]['packages']:
+                namespaces[ns_as_list[0]]['packages'][ns_as_list[1]] = {}
+
+            if ns_as_list[2] not in namespaces[ns_as_list[0]]['packages'][ns_as_list[1]]:
+                namespaces[ns_as_list[0]]['packages'][ns_as_list[1]][ns_as_list[2]] = {
+                    'endpoint': source_mapping[namespace]['endpoint'],
+                    'method': api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['method'],
+                    'params': {},
+                    'body': {},
+                    'title': api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['title'],
+                    'docstring': textwrap.dedent(api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['docstring']),
+                    'result_class': api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['result_class'],
+                }
+                if 'url_params' in api_mapping['endpoint'][source_mapping[namespace]['endpoint']]:
+                    ordered_params = self._check_default_and_order_property(api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['url_params'])
+                    namespaces[ns_as_list[0]]['packages'][ns_as_list[1]][ns_as_list[2]]['params'] = ordered_params
+
+                if 'body_params' in api_mapping['endpoint'][source_mapping[namespace]['endpoint']]:
+                    ordered_body = self._check_default_and_order_property(api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['body_params'])
+                    namespaces[ns_as_list[0]]['packages'][ns_as_list[1]][ns_as_list[2]]['body'] = ordered_body
+
+            if api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['result_class'] not in namespaces[ns_as_list[0]]['result_classes']:
+                namespaces[ns_as_list[0]]['result_classes'].append(
+                    api_mapping['endpoint'][source_mapping[namespace]['endpoint']]['result_class']
+                    )
+        return namespaces
+
+    def _check_default_and_order_property(self, parameters):
+        arr = []
+        dict_property = {}
+        for param in parameters:
+            if 'default' in parameters[param]['description'].lower():
+                arr.append({
+                    f'{param}': {
+                        'type': type(parameters[param]['example']).__name__,
+                        'description': self._normalize_description(parameters[param]['description']),
+                        'default': parameters[param]['example']
+                    }
+                })
+            else:
+                arr.insert(0, {
+                    f'{param}': {
+                        'type': type(parameters[param]['example']).__name__,
+                        'description': self._normalize_description(parameters[param]['description']),
+                        'default': ''
+                    }
+                })
+        for param in arr:
+            dict_property.update(param)
+        return dict_property
+
+    def _generate_response_model(
+        self,
+        result_classes
+    ):
+        with open('codegen/templates/response_model.py') as file:
+            t_response_model = Template(file.read())
+            t_response_model.stream(
+                result_classes=result_classes
+            ).dump(f"proxycurl/models.py")
+
+    def _generate_library(
+        self,
+        concurrent_type,
+        namespaces
+    ):
+        with open(f'codegen/templates/{concurrent_type}.py') as file:
+            t_library = Template(file.read())
+            t_library.stream(
+                ns_data=namespaces
+            ).dump(f"proxycurl/{concurrent_type}/library.py")
+
+    def _generate_init(
+        self,
+        concurrent_type: str,
+    ):
+        folder = f"proxycurl/{concurrent_type}"
+        if not os.path.isdir(folder):
+            os.mkdir(folder)
+        with open('codegen/templates/init.py') as file:
+            t = Template(file.read())
+            t.stream().dump(f'proxycurl/{concurrent_type}/__init__.py')
+
+    def _normalize_description(self, description):
+        text_no_indent = textwrap.dedent(description)
+        text_spliteline = text_no_indent.splitlines()
+        desc = []
+        for (index, text) in enumerate(text_spliteline):
+            # skip first break
+            if text == '' and index == 0:
+                continue
+
+            # add break in the middle of description (not add break on last line or single line)
+            if (index + 1) != len(text_spliteline):
+                text = text + '\n'
+
+            # prevent first line have indent
+            if len(desc) == 0:
+                desc.append(text)
+            # add indent on the middle of description
+            else:
+                desc.append(textwrap.indent(text, '            '))
+
+        return ''.join(desc)
+
+
+if __name__ == '__main__':
+    cli = Cli()
+    cli.generate_code()

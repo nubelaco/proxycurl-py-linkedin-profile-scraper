@@ -1,0 +1,44 @@
+{
+    "linkedin.person.get": {
+        "endpoint": "/proxycurl/api/v2/linkedin"
+    },
+    "linkedin.person.resolve": {
+        "endpoint": "/proxycurl/api/linkedin/profile/resolve"
+    },
+    "linkedin.person.resolve_by_email": {
+        "endpoint": "/proxycurl/api/linkedin/profile/resolve/email"
+    },
+    "linkedin.person.lookup_email": {
+        "endpoint": "/proxycurl/api/linkedin/profile/email"
+    },
+    "linkedin.person.personal_contact": {
+        "endpoint": "/proxycurl/api/contact-api/personal-contact"
+    },
+    "linkedin.person.personal_email": {
+        "endpoint": "/proxycurl/api/contact-api/personal-email"
+    },
+    "linkedin.company.get": {
+        "endpoint": "/proxycurl/api/linkedin/company"
+    },
+    "linkedin.company.resolve": {
+        "endpoint": "/proxycurl/api/linkedin/company/resolve"
+    },
+    "linkedin.company.find_job": {
+        "endpoint": "/proxycurl/api/v2/linkedin/company/job"
+    },
+    "linkedin.company.employee_count": {
+        "endpoint": "/proxycurl/api/linkedin/company/employees/"
+    },
+    "linkedin.company.employee_list": {
+        "endpoint": "/proxycurl/api/linkedin/company/employees/count"
+    },
+    "linkedin.school.get": {
+        "endpoint": "/proxycurl/api/linkedin/school"
+    },
+    "linkedin.job.list": {
+        "endpoint": "/proxycurl/api/linkedin/job"
+    },
+    "get_balance": {
+        "endpoint": "/proxycurl/api/credit-balance"
+    }
+}
