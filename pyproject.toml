@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "proxycurl"
-version = "0.0.7"
+version = "0.0.10"
 description = ""
 authors = ["Nubela <tech@nubela.co>"]
 

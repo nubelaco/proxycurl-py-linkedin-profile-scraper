@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name='proxycurl',
-    version='0.0.7',
+    version='0.0.10',
     python_requires='==3.*,>=3.7.0',
     author='Nubela',
     author_email='tech@nubela.co',
@@ -21,5 +21,11 @@ setup(
     package_dir={"": "."},
     package_data={},
     install_requires=[],
+    project_urls={
+        "Homepage":  "https://nubela.co/proxycurl",
+        "Bug Tracker":  "https://github.com/nubelaco/proxycurl-linkedin-scraper/issues",
+        "Documentation": "https://nubela.co/proxycurl/docs",
+        "Source Code": "https://github.com/nubelaco/proxycurl-linkedin-scraper",
+    },
     extras_require={"asyncio": ["aiohttp==3.*,>=3.7.4", "asyncio==3.*,>=3.4.3"], "dev": ["jinja2==3.*,>=3.0.1"], "gevent": ["gevent==21.*,>=21.1.1", "requests==2.*,>=2.25.0"], "twisted": ["treq==21.*,>=21.5.0", "twisted==21.*,>=21.7.0"]},
 )
