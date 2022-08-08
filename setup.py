@@ -10,14 +10,14 @@ def read(fname):
 
 setup(
     name='proxycurl',
-    version='0.0.10',
+    version='0.0.12',
     python_requires='==3.*,>=3.7.0',
     author='Nubela',
     author_email='tech@nubela.co',
     description='Proxycurl is a set of tools designed to serve as plumbing for fresh and processed data in your application',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
-    packages=['proxycurl.asyncio', 'proxycurl.gevent', 'proxycurl.twisted'],
+    packages=['proxycurl', 'proxycurl.asyncio', 'proxycurl.gevent', 'proxycurl.twisted'],
     package_dir={"": "."},
     package_data={},
     install_requires=[],
