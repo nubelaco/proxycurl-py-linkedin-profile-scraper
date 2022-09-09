@@ -1,7 +1,19 @@
 # `proxycurl-py` -  The official Python client for Proxycurl API to scrape and enrich LinkedIn profiles
 
-[TOC]
-
+  * [What is Proxycurl?](#what-is-proxycurl-)
+  * [Before you install](#before-you-install)
+  * [Installation and supported Python versions](#installation-and-supported-python-versions)
+  * [Initializing `proxycurl-py` with an API Key](#initializing--proxycurl-py--with-an-api-key)
+  * [Usage with examples](#usage-with-examples)
+    + [Enrich a Person Profile](#enrich-a-person-profile)
+    + [Enrich a Company Profile](#enrich-a-company-profile)
+    + [Lookup a person](#lookup-a-person)
+    + [Lookup a company](#lookup-a-company)
+    + [Lookup a LinkedIn Profile URL from a work email address](#lookup-a-linkedin-profile-url-from-a-work-email-address)
+    + [Enrich LinkedIn member profiles in bulk (from a CSV)](#enrich-linkedin-member-profiles-in-bulk--from-a-csv-)
+    + [More *asyncio* examples](#more--asyncio--examples)
+  * [Rate limit and error handling](#rate-limit-and-error-handling)
+  * [API Endpoints and their corresponding documentation](#api-endpoints-and-their-corresponding-documentation)
 
 
 ## What is Proxycurl?
