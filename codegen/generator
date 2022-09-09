@@ -77,12 +77,13 @@ class Cli():
         arr = []
         dict_property = {}
         for param in parameters:
-            if 'default' in parameters[param]['description'].lower():
+            if "default" in parameters[param].keys():
                 arr.append({
                     f'{param}': {
                         'type': type(parameters[param]['example']).__name__,
                         'description': self._normalize_description(parameters[param]['description']),
-                        'default': parameters[param]['example']
+                        'default': parameters[param]['default'],
+                        'required': False
                     }
                 })
             else:
@@ -90,7 +91,7 @@ class Cli():
                     f'{param}': {
                         'type': type(parameters[param]['example']).__name__,
                         'description': self._normalize_description(parameters[param]['description']),
-                        'default': ''
+                        'required': True
                     }
                 })
         for param in arr:

@@ -12,13 +12,13 @@ def main():
 
 
     person = yield proxycurl.linkedin.person.get(
-        url='https://sg.linkedin.com/in/steven-goh-6738131b'
+        url='https://sg.linkedin.com/in/williamhgates'
     )
 
     print('Person:', person)
 
     company = yield proxycurl.linkedin.company.get(
-        url='https://www.linkedin.com/company/nubela'
+        url='https://www.linkedin.com/company/apple'
     )
 
     print('Company:', company)
@@ -35,6 +35,8 @@ def main():
     bulk = yield do_bulk(bulk_linkedin_person_data)
 
     print('Bulk:', bulk)
+
+    reactor.stop()
 
 main()
 

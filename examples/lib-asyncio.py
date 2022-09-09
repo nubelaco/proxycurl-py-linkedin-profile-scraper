@@ -10,13 +10,13 @@ balance = asyncio.run(proxycurl.get_balance())
 print('Balance:', balance)
 
 person = asyncio.run(proxycurl.linkedin.person.get(
-    url='https://sg.linkedin.com/in/steven-goh-6738131b'
+    url='https://sg.linkedin.com/in/williamhgates'
 ))
 
 print('Person Result:', person)
 
 company = asyncio.run(proxycurl.linkedin.company.get(
-    url='https://www.linkedin.com/company/nubela'
+    url='https://www.linkedin.com/company/apple'
 ))
 
 print('Company Result:', company)

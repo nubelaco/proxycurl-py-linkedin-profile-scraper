@@ -18,12 +18,12 @@ from proxycurl.models import (
     def {{action}}(
         self,
         {%- for param in options['params'] %}
-        {{param}}: {{options['params'][param]['type']}}{% if options['params'][param]['default'] %} = '{{options['params'][param]['default']}}'{% endif %},
+        {{param}}: {{options['params'][param]['type']}}{% if options['params'][param]['required'] == False %} = '{{options['params'][param]['default']}}'{% endif %},
         {%- endfor %}
         {%- for body in options['body'] %}
         {{body}}: {{options['body'][body]['type']}}{% if options['body'][body]['default'] %} = '{{options['body'][body]['default']}}'{% endif %},
         {%- endfor %}
-    ) -> Deferred[{{options['result_class']}}]:
+    ) -> Deferred:
         """{{options['title']}}
         {% if '\n' in options['docstring'] %}
         {{options['docstring']|indent(8, True)}}
@@ -39,8 +39,8 @@ from proxycurl.models import (
         :param {{param}}: {{options['body'][param]['description']}}{% if options['body'][param]['default'] %}, defaults to '{{options['body'][param]['default']}}'{% endif %}
         :type {{param}}: {{options['body'][param]['type']}}
         {%- endfor %}
-        :return: An object of Deferred[:class:`proxycurl.models.{{options['result_class']}}]` or **None** if there is an error.
-        :rtype: Deferred[:class:`proxycurl.models.{{options['result_class']}}]`
+        :return: An object of Deferred or **None** if there is an error.
+        :rtype: Deferred
         :raise ProxycurlException: Every error will raise a :class:`proxycurl.twisted.ProxycurlException`
 
         """

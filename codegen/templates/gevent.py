@@ -15,7 +15,7 @@ from proxycurl.models import (
     def {{action}}(
         self,
         {%- for param in options['params'] %}
-        {{param}}: {{options['params'][param]['type']}}{% if options['params'][param]['default'] %} = '{{options['params'][param]['default']}}'{% endif %},
+        {{param}}: {{options['params'][param]['type']}}{% if options['params'][param]['required'] == False %} = '{{options['params'][param]['default']}}'{% endif %},
         {%- endfor %}
         {%- for body in options['body'] %}
         {{body}}: {{options['body'][body]['type']}}{% if options['body'][body]['default'] %} = '{{options['body'][body]['default']}}'{% endif %},

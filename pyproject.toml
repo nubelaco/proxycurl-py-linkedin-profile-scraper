@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "proxycurl"
-version = "0.0.12"
-description = ""
+version = "0.0.13"
+description = "This library is deprecated. Please use `proxycurl-py` for the updated version"
 authors = ["Nubela <tech@nubela.co>"]
+packages = [
+    { include = "proxycurl-py"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"

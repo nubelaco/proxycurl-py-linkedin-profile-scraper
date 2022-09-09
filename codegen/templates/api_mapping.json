@@ -1,1 +1,1530 @@
-{"endpoint": {"/proxycurl/api/linkedin/company/employees/count": {"method": "GET", "title": "Employee Count Endpoint", "docstring": "\n\n    Get a number of total employees of a Company.\n\n    This API endpoint is limited by LinkDB which is populated with profiles in the US, UK, Canada, Israel, Australia and Singapore. As such, this endpoint is best used to list employees working in companies based in the US, UK, Canada, Israel, Australia and Singapore only.\n\n    ", "result_class": "EmployeeCount", "url_params": {"employment_status": {"required": false, "description": "\n    Parameter to tell the API to filter past or current employees.\n\n    Valid values are `current`, `past`, and `all`:\n\n    * `current` (default) : count current employees\n    * `past` : count past employees\n    * `all` : count current & past employees\n    ", "example": "current"}, "url": {"required": true, "description": "\n    URL of the LinkedIn Company Profile to target.\n\n    URL should be in the format of `https://www.linkedin.com/company/<public_identifier>`\n    ", "example": "https://www.linkedin.com/company/nubela"}}}, "/proxycurl/api/linkedin/profile/resolve/email": {"method": "GET", "title": "Reverse Work Email Lookup Endpoint", "docstring": "Resolve LinkedIn Profile from a work email address", "result_class": "UrlResult", "url_params": {"work_email": {"required": true, "description": "Work email address of the user", "example": "danial@nubela.co"}}}, "/proxycurl/api/v2/linkedin/company/job": {"method": "GET", "title": "Jobs Listing Endpoint", "docstring": "List jobs posted by a company on LinkedIn", "result_class": "JobListPage", "url_params": {"search_id": {"required": true, "description": "\n    The `search_id` of the company on LinkedIn.\n    You can get the `search_id` of a LinkedIn company via [Company Profile API](#company-api-linkedin-company-profile-endpoint).\n    ", "example": "4999584"}}}, "/proxycurl/api/linkedin/company/employees/": {"method": "GET", "title": "Employee Listing Endpoint", "docstring": "\n\n    Get a list of employees of a Company.\n\n    This API endpoint is limited by LinkDB which is populated with profiles in the US, UK, Canada, Israel, Australia and Singapore. As such, this endpoint is best used to list employees working in companies based in the US, UK, Canada, Israel, Australia and Singapore only.\n    ", "result_class": "EmployeeList", "url_params": {"employment_status": {"required": false, "description": "\n    Parameter to tell the API to return past or current employees.\n\n    Valid values are `current`, `past`, and `all`:\n\n    * `current` (default) : lists current employees\n    * `past` : lists past employees\n    * `all` : lists current & past employees\n    ", "example": "current"}, "url": {"required": true, "description": "\n    URL of the LinkedIn Company Profile to target.\n\n    URL should be in the format of `https://www.linkedin.com/company/<public_identifier>`\n    ", "example": "https://www.linkedin.com/company/nubela"}}}, "/proxycurl/api/linkedin/profile/resolve": {"method": "GET", "title": "Person Lookup Endpoint", "docstring": "Resolve LinkedIn Profile", "result_class": "UrlResult", "url_params": {"company_domain": {"required": true, "description": "Company name or domain", "example": "gatesfoundation.org"}, "location": {"required": false, "description": "\n    The location of this user.\n\n    Name of country, city or state.\n    ", "example": "Singapore"}, "title": {"required": false, "description": "Title that user is holding at his/her current job", "example": "Co-chair"}, "last_name": {"required": false, "description": "Last name of the user", "example": "Gates"}, "first_name": {"required": true, "description": "First name of the user", "example": "Bill"}}}, "/proxycurl/api/linkedin/company/resolve": {"method": "GET", "title": "Company Lookup Endpoint", "docstring": "Resolve Company LinkedIn Profile from company name, domain name and location.", "result_class": "UrlResult", "url_params": {"location": {"required": false, "description": "\n    The location / region of company.\n    ISO 3166-1 alpha-2 codes\n    ", "example": "sg"}, "company_domain": {"required": "Requires either `company_domain` or `company_name`", "description": "Company website or Company domain", "example": "accenture.com"}, "company_name": {"required": "Requires either `company_domain` or `company_name`", "description": "Company Name", "example": "Accenture"}}}, "/proxycurl/api/linkedin/profile/email": {"method": "GET", "title": "Work Email Lookup Endpoint", "docstring": "\n    Lookup work email address of a LinkedIn Person Profile.\n\n    Email addresses returned are verified to not be role-based or catch-all emails. Email addresses\n    returned by our API endpoint come with a 95+% deliverability guarantee\n\n    **Endpoint behavior**\n\n    *This endpoint* **_may not_** *return results immediately.*\n\n    For some profiles, email addresses are returned immediately when the endpoint is called. For such\n    requests, we will respond with a `200` status code. Credits will be consumed immediately\n\n    Some profiles require more time to extract email address from. For such requests, we will respond\n    with a `202` status code. No credits are consumed.\n\n    If you provided a webhook in your request parameter, our application will call your webhook with\n    the result once. See `Webhook payload` below.\n\n    Alternatively, you can also poll (repeat the request) our API and we will return the result once it is\n    successful.\n\n    Successful responses to requests are cached for up to 24 hours. We will also not charge you for the\n    same request in a 24 hour window\n    ", "result_class": "ExtractionEmailResult", "url_params": {"linkedin_profile_url": {"required": true, "description": "\n    Linkedin Profile URL of the person you want to\n    extract work email address from.\n    ", "example": "https://sg.linkedin.com/in/steven-goh-6738131b"}, "cache": {"required": false, "description": "\n    The default cache behavior is `no-cache`, for which we will begin a fresh search\n    for every request. This maximises the success rate of finding a valid email address.\n    If you do NOT want to be charged for requests that do not return you any email address,\n    you should use `cache-only` so that we only return cached results and will not begin an\n    exhuastive search for a valid email address.\n    Possible values are: `no-cache`, `cache-only`\n    ", "example": "no-cache"}, "callback_url": {"required": false, "description": "\n    Webhook to notify your application when\n    the request has finished processing.\n    ", "example": "https://webhook.site/29e12f17-d5a2-400a-9d08-42ee9d83600a"}}}, "/proxycurl/api/find/company/role": {"method": "GET", "title": "Role Lookup Endpoint", "docstring": "Finds the closest (person) profile with a given role in a Company. For example, you can use this endpoint to find the \"CTO\" of \"Apple\".", "result_class": "RoleSearchResult", "url_params": {"role": {"required": true, "description": "Role of the profile that you are lookin up", "example": "ceo"}, "company_name": {"required": true, "description": "Name of the company that you are searching for", "example": "nubela"}}}, "/proxycurl/api/contact-api/personal-contact": {"method": "GET", "title": "Personal Contact Number Lookup Endpoint", "docstring": "Given an LinkedIn profile, returns a list of personal contact numbers belonging to this identity.", "result_class": "PDLPhoneNumberResult", "url_params": {"linkedin_profile_url": {"required": true, "description": "\n    LinkedIn Profile URL of the person you want to extract personal contact numbers from.\n    ", "example": "https://linkedin.com/in/test-phone-number"}}}, "/proxycurl/api/contact-api/personal-email": {"method": "GET", "title": "Personal Email Lookup Endpoint", "docstring": "Given an LinkedIn profile, returns a list of personal emails belonging to this identity. Emails are verified to be deliverable.", "result_class": "PDLEmailResult", "url_params": {"linkedin_profile_url": {"required": true, "description": "\n    LinkedIn Profile URL of the person you want to extract personal email addresses from.\n    ", "example": "https://linkedin.com/in/steven-goh-6738131b"}}}, "/proxycurl/api/linkedin/company": {"method": "GET", "title": "Company Profile Endpoint", "docstring": "Get structured data of a Company Profile", "result_class": "LinkedinCompany", "url_params": {"categories": {"required": false, "description": "\n    Appends categories data of this company.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these categories (if available) for `1` extra credit.\n    ", "example": "include"}, "funding_data": {"required": false, "description": "\n    Returns a list of funding rounds that this company has received.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these categories (if available) for `1` extra credit.\n    ", "example": "include"}, "extra": {"required": false, "description": "\n    Enriches the Company Profile with extra details from external sources. Details include Crunchbase ranking, contact email, phone number, Facebook account, Twitter account, funding rounds and amount, IPO status, investor information, etc.\n    \n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these extra details (if available) for `1` extra credit.\n    ", "example": "include"}, "exit_data": {"required": false, "description": "\n    Returns a list of investment portfolio exits.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these categories (if available) for `1` extra credit.\n    ", "example": "include"}, "acquisitions": {"required": false, "description": "\n    Provides further enriched data on acquisitions made by this company from external sources.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these acquisition data (if available) for `1` extra credit.\n    ", "example": "include"}, "url": {"required": true, "description": "\n    URL of the LinkedIn Company Profile to crawl.\n\n    URL should be in the format of `https://www.linkedin.com/company/<public_identifier>`\n    ", "example": "https://www.linkedin.com/company/70982840/"}, "use_cache": {"required": false, "description": "\n    `if-present` Fetches profile from cache regardless of age of profile. If profile is not available in cache, API will attempt to source profile externally.\n\n    `if-recent` The default behavior. API will make a best effort to return a fresh profile no older than 29 days.\n    ", "example": "if-present"}}}, "/proxycurl/api/linkedin/school": {"method": "GET", "title": "School Profile Endpoint", "docstring": "Get structured data of a LinkedIn School Profile", "result_class": "LinkedinSchool", "url_params": {"url": {"required": true, "description": "\n    URL of the LinkedIn School Profile to crawl.\n\n    URL should be in the format of `https://www.linkedin.com/school/<public_identifier>`\n    ", "example": "https://www.linkedin.com/school/national-university-of-singapore"}, "use_cache": {"required": false, "description": "\n    `if-present` Fetches profile from cache regardless of age of profile. If profile is not available in cache, API will attempt to source profile externally..\n\n    `if-recent` The default behavior. API will make a best effort to return a fresh profile no older than 29 days.\n    ", "example": "if-present"}}}, "/proxycurl/api/linkedin/job": {"method": "GET", "title": "Job Profile Endpoint", "docstring": "Get structured data of a LinkedIn Job Profile", "result_class": "LinkedinJob", "url_params": {"url": {"required": true, "description": "\n    URL of the LinkedIn Job Profile to target.\n\n    URL should be in the format of `https://www.linkedin.com/jobs/view/<job_id>`.\n    [Jobs Listing Endpoint](#jobs-api-linkedin-jobs-listing-endpoint) can be used to retrieve a job URL.\n    ", "example": "https://www.linkedin.com/jobs/view/2794284647/"}}}, "/proxycurl/api/v2/linkedin": {"method": "GET", "title": "Person Profile Endpoint", "docstring": "\n    Get structured data of a Personal Profile\n    ", "result_class": "PersonEndpointResponse", "url_params": {"url": {"required": true, "description": "\n    URL of the LinkedIn Profile to crawl.\n\n    URL should be in the format of `https://www.linkedin.com/in/<public-identifier>`\n    ", "example": "https://www.linkedin.com/in/joho-balboa/"}, "use_cache": {"required": false, "description": "\n    `if-present` Fetches profile from cache regardless of age of profile. If profile is not available in cache, API will attempt to source profile externally.\n\n    `if-recent` The default behavior. API will make a best effort to return a fresh profile no older than 29 days.\n    ", "example": "if-present"}, "skills": {"required": false, "description": "\n    Include skills data from external sources.\n\n    This parameter accepts the following values:\n    - `exclude` (default value) - Does not provide skills data field.\n    - `include` - Append skills data to the person profile object. Costs an extra `1` credit on top of the cost of the base endpoint (if data is available).\n    ", "example": "include"}, "inferred_salary": {"required": false, "description": "\n    Include inferred salary range from external sources.\n\n    This parameter accepts the following values:\n    - `exclude` (default value) - Does not provide inferred salary data field.\n    - `include` - Append inferred salary range data to the person profile object. Costs an extra `1` credit on top of the cost of the base endpoint (if data is available).\n    ", "example": "include"}, "extra": {"required": false, "description": "\n    Enriches the Person Profile with extra details from external sources. Extra details include IDs of social media accounts such as Github and Facebook, gender, birth date, industry and interests.\n\n    This parameter accepts the following values:\n    - `exclude` (default value) - Does not provide extra data field.\n    - `include` - Append extra data to the person profile object. Costs an extra `1` credit on top of the cost of the base endpoint (if data is available).\n    ", "example": "include"}}}, "/proxycurl/api/disposable-email": {"method": "GET", "title": "Disposable Email Address Check Endpoint", "docstring": "Given an email address, checks if the email address belongs to a disposable email service.", "result_class": "DisposableEmail", "url_params": {"email": {"required": true, "description": "Email address to check", "example": "steven@nubela.co"}}}, "/proxycurl/api/credit-balance": {"method": "GET", "title": "View Credit Balance Endpoint", "docstring": "Get your current credit(s) balance", "result_class": "CreditBalance"}}, "classes": {"EmployeeCount": {"total_employee": {"kind": "basic", "name": "int"}}, "UrlResult": {"url": {"kind": "basic", "name": "str"}}, "Job": {"company": {"kind": "basic", "name": "str"}, "company_url": {"kind": "basic", "name": "str"}, "job_title": {"kind": "basic", "name": "str"}, "job_url": {"kind": "basic", "name": "str"}, "list_date": {"kind": "basic", "name": "str"}, "location": {"kind": "basic", "name": "str"}}, "ProfileUrl": {"profile_url": {"kind": "basic", "name": "str"}}, "ExtractionEmailResult": {"email": {"kind": "basic", "name": "str"}, "status": {"kind": "basic", "name": "str"}}, "RoleSearchResult": {"linkedin_profile_url": {"kind": "basic", "name": "str"}}, "PDLPhoneNumberResult": {"numbers": {"kind": "list", "element": "str"}}, "PDLEmailResult": {"emails": {"kind": "list", "element": "str"}}, "Investor": {"linkedin_profile_url": {"kind": "basic", "name": "str"}, "name": {"kind": "basic", "name": "str"}, "type": {"kind": "basic", "name": "str"}}, "Exit": {"linkedin_profile_url": {"kind": "basic", "name": "str"}, "crunchbase_profile_url": {"kind": "basic", "name": "str"}, "name": {"kind": "basic", "name": "str"}}, "SimilarCompany": {"name": {"kind": "basic", "name": "str"}, "link": {"kind": "basic", "name": "str"}, "industry": {"kind": "basic", "name": "str"}, "location": {"kind": "basic", "name": "str"}}, "CompanyLocation": {"country": {"kind": "basic", "name": "str"}, "city": {"kind": "basic", "name": "str"}, "postal_code": {"kind": "basic", "name": "str"}, "line_1": {"kind": "basic", "name": "str"}, "is_hq": {"kind": "basic", "name": "bool"}, "state": {"kind": "basic", "name": "str"}}, "LinkedinJob": {"linkedin_internal_id": {"kind": "basic", "name": "str"}, "job_description": {"kind": "basic", "name": "str"}, "apply_url": {"kind": "basic", "name": "str"}, "title": {"kind": "basic", "name": "str"}, "location": {"kind": "record", "name": "Dict"}, "company": {"kind": "record", "name": "Dict"}, "seniority_level": {"kind": "basic", "name": "str"}, "industry": {"kind": "list", "element": "str"}, "employment_type": {"kind": "basic", "name": "str"}, "job_functions": {"kind": "list", "element": "str"}, "total_applicants": {"kind": "basic", "name": "int"}}, "InferredSalary": {"min": {"kind": "basic", "name": "float"}, "max": {"kind": "basic", "name": "float"}}, "PersonGroup": {"profile_pic_url": {"kind": "basic", "name": "str"}, "name": {"kind": "basic", "name": "str"}, "url": {"kind": "basic", "name": "str"}}, "SimilarProfile": {"name": {"kind": "basic", "name": "str"}, "link": {"kind": "basic", "name": "str"}, "summary": {"kind": "basic", "name": "str"}, "location": {"kind": "basic", "name": "str"}}, "Activity": {"title": {"kind": "basic", "name": "str"}, "link": {"kind": "basic", "name": "str"}, "activity_status": {"kind": "basic", "name": "str"}}, "PeopleAlsoViewed": {"link": {"kind": "basic", "name": "str"}, "name": {"kind": "basic", "name": "str"}, "summary": {"kind": "basic", "name": "str"}, "location": {"kind": "basic", "name": "str"}}, "Course": {"name": {"kind": "basic", "name": "str"}, "number": {"kind": "basic", "name": "str"}}, "Date": {"day": {"kind": "basic", "name": "int"}, "month": {"kind": "basic", "name": "int"}, "year": {"kind": "basic", "name": "int"}}, "DisposableEmail": {"is_disposable_email": {"kind": "basic", "name": "bool"}, "is_free_email": {"kind": "basic", "name": "bool"}}, "CreditBalance": {"credit_balance": {"kind": "basic", "name": "int"}}, "Experience": {"starts_at": {"kind": "record", "name": "Date"}, "ends_at": {"kind": "record", "name": "Date"}, "company": {"kind": "basic", "name": "str"}, "company_linkedin_profile_url": {"kind": "basic", "name": "str"}, "title": {"kind": "basic", "name": "str"}, "description": {"kind": "basic", "name": "str"}, "location": {"kind": "basic", "name": "str"}, "logo_url": {"kind": "basic", "name": "str"}}, "Education": {"starts_at": {"kind": "record", "name": "Date"}, "ends_at": {"kind": "record", "name": "Date"}, "field_of_study": {"kind": "basic", "name": "str"}, "degree_name": {"kind": "basic", "name": "str"}, "school": {"kind": "basic", "name": "str"}, "school_linkedin_profile_url": {"kind": "basic", "name": "str"}, "description": {"kind": "basic", "name": "str"}, "logo_url": {"kind": "basic", "name": "str"}}, "AccomplishmentOrg": {"starts_at": {"kind": "record", "name": "Date"}, "ends_at": {"kind": "record", "name": "Date"}, "org_name": {"kind": "basic", "name": "str"}, "title": {"kind": "basic", "name": "str"}, "description": {"kind": "basic", "name": "str"}}, "Publication": {"name": {"kind": "basic", "name": "str"}, "publisher": {"kind": "basic", "name": "str"}, "published_on": {"kind": "record", "name": "Date"}, "description": {"kind": "basic", "name": "str"}, "url": {"kind": "basic", "name": "str"}}, "HonourAward": {"title": {"kind": "basic", "name": "str"}, "issuer": {"kind": "basic", "name": "str"}, "issued_on": {"kind": "record", "name": "Date"}, "description": {"kind": "basic", "name": "str"}}, "Patent": {"title": {"kind": "basic", "name": "str"}, "issuer": {"kind": "basic", "name": "str"}, "issued_on": {"kind": "record", "name": "Date"}, "description": {"kind": "basic", "name": "str"}, "application_number": {"kind": "basic", "name": "str"}, "patent_number": {"kind": "basic", "name": "str"}, "url": {"kind": "basic", "name": "str"}}, "Project": {"starts_at": {"kind": "record", "name": "Date"}, "ends_at": {"kind": "record", "name": "Date"}, "title": {"kind": "basic", "name": "str"}, "description": {"kind": "basic", "name": "str"}, "url": {"kind": "basic", "name": "str"}}, "TestScore": {"description": {"kind": "basic", "name": "str"}, "score": {"kind": "basic", "name": "str"}, "name": {"kind": "basic", "name": "str"}, "date_on": {"kind": "record", "name": "Date"}}, "VolunteeringExperience": {"starts_at": {"kind": "record", "name": "Date"}, "ends_at": {"kind": "record", "name": "Date"}, "cause": {"kind": "basic", "name": "str"}, "company": {"kind": "basic", "name": "str"}, "company_linkedin_profile_url": {"kind": "basic", "name": "str"}, "title": {"kind": "basic", "name": "str"}, "description": {"kind": "basic", "name": "str"}, "logo_url": {"kind": "basic", "name": "str"}}, "Certification": {"starts_at": {"kind": "record", "name": "Date"}, "ends_at": {"kind": "record", "name": "Date"}, "url": {"kind": "basic", "name": "str"}, "name": {"kind": "basic", "name": "str"}, "license_number": {"kind": "basic", "name": "str"}, "display_source": {"kind": "basic", "name": "str"}, "authority": {"kind": "basic", "name": "str"}}, "Article": {"title": {"kind": "basic", "name": "str"}, "link": {"kind": "basic", "name": "str"}, "published_date": {"kind": "record", "name": "Date"}, "author": {"kind": "basic", "name": "str"}, "image_url": {"kind": "basic", "name": "str"}}, "PersonEndpointResponse": {"public_identifier": {"kind": "basic", "name": "str"}, "profile_pic_url": {"kind": "basic", "name": "str"}, "background_cover_image_url": {"kind": "basic", "name": "str"}, "first_name": {"kind": "basic", "name": "str"}, "last_name": {"kind": "basic", "name": "str"}, "full_name": {"kind": "basic", "name": "str"}, "occupation": {"kind": "basic", "name": "str"}, "headline": {"kind": "basic", "name": "str"}, "summary": {"kind": "basic", "name": "str"}, "country": {"kind": "basic", "name": "str"}, "country_full_name": {"kind": "basic", "name": "str"}, "city": {"kind": "basic", "name": "str"}, "state": {"kind": "basic", "name": "str"}, "experiences": {"kind": "list", "element": "Experience"}, "education": {"kind": "list", "element": "Education"}, "languages": {"kind": "list", "element": "str"}, "accomplishment_organisations": {"kind": "list", "element": "AccomplishmentOrg"}, "accomplishment_publications": {"kind": "list", "element": "Publication"}, "accomplishment_honors_awards": {"kind": "list", "element": "HonourAward"}, "accomplishment_patents": {"kind": "list", "element": "Patent"}, "accomplishment_courses": {"kind": "list", "element": "Course"}, "accomplishment_projects": {"kind": "list", "element": "Project"}, "accomplishment_test_scores": {"kind": "list", "element": "TestScore"}, "volunteer_work": {"kind": "list", "element": "VolunteeringExperience"}, "certifications": {"kind": "list", "element": "Certification"}, "connections": {"kind": "basic", "name": "int"}, "people_also_viewed": {"kind": "list", "element": "PeopleAlsoViewed"}, "recommendations": {"kind": "list", "element": "str"}, "activities": {"kind": "list", "element": "Activity"}, "similarly_named_profiles": {"kind": "list", "element": "SimilarProfile"}, "articles": {"kind": "list", "element": "Article"}, "groups": {"kind": "list", "element": "PersonGroup"}, "skills": {"kind": "list", "element": "str"}, "inferred_salary": {"kind": "record", "name": "InferredSalary"}, "github": {"kind": "basic", "name": "str"}, "facebook": {"kind": "basic", "name": "str"}, "gender": {"kind": "basic", "name": "str"}, "birth_date": {"kind": "record", "name": "Date"}, "industry": {"kind": "basic", "name": "str"}, "interests": {"kind": "list", "element": "str"}}, "CompanyUpdate": {"article_link": {"kind": "basic", "name": "str"}, "image": {"kind": "basic", "name": "str"}, "posted_on": {"kind": "record", "name": "Date"}, "text": {"kind": "basic", "name": "str"}, "total_likes": {"kind": "basic", "name": "int"}}, "LinkedinSchool": {"linkedin_internal_id": {"kind": "basic", "name": "str"}, "description": {"kind": "basic", "name": "str"}, "website": {"kind": "basic", "name": "str"}, "industry": {"kind": "basic", "name": "str"}, "company_size": {"kind": "tuple", "args": ["int", "int"]}, "company_size_on_linkedin": {"kind": "basic", "name": "int"}, "hq": {"kind": "record", "name": "CompanyLocation"}, "company_type": {"kind": "basic", "name": "str"}, "founded_year": {"kind": "basic", "name": "int"}, "specialities": {"kind": "list", "element": "str"}, "locations": {"kind": "list", "element": "CompanyLocation"}, "name": {"kind": "basic", "name": "str"}, "tagline": {"kind": "basic", "name": "str"}, "universal_name_id": {"kind": "basic", "name": "str"}, "profile_pic_url": {"kind": "basic", "name": "str"}, "background_cover_image_url": {"kind": "basic", "name": "str"}, "search_id": {"kind": "basic", "name": "str"}, "similar_companies": {"kind": "list", "element": "SimilarCompany"}, "updates": {"kind": "list", "element": "CompanyUpdate"}, "follower_count": {"kind": "basic", "name": "int"}}, "AcquiredCompany": {"linkedin_profile_url": {"kind": "basic", "name": "str"}, "crunchbase_profile_url": {"kind": "basic", "name": "str"}, "announced_date": {"kind": "record", "name": "Date"}, "price": {"kind": "basic", "name": "int"}}, "Acquisitor": {"linkedin_profile_url": {"kind": "basic", "name": "str"}, "crunchbase_profile_url": {"kind": "basic", "name": "str"}, "announced_date": {"kind": "record", "name": "Date"}, "price": {"kind": "basic", "name": "int"}}, "Acquisition": {"acquired": {"kind": "list", "element": "AcquiredCompany"}, "acquired_by": {"kind": "record", "name": "Acquisitor"}}, "CompanyDetails": {"ipo_status": {"kind": "basic", "name": "str"}, "crunchbase_rank": {"kind": "basic", "name": "int"}, "founding_date": {"kind": "record", "name": "Date"}, "operating_status": {"kind": "basic", "name": "str"}, "company_type": {"kind": "basic", "name": "str"}, "contact_email": {"kind": "basic", "name": "str"}, "phone_number": {"kind": "basic", "name": "str"}, "facebook_id": {"kind": "basic", "name": "str"}, "twitter_id": {"kind": "basic", "name": "str"}, "number_of_funding_rounds": {"kind": "basic", "name": "int"}, "total_funding_amount": {"kind": "basic", "name": "int"}, "stock_symbol": {"kind": "basic", "name": "str"}, "ipo_date": {"kind": "record", "name": "Date"}, "number_of_lead_investors": {"kind": "basic", "name": "int"}, "number_of_investors": {"kind": "basic", "name": "int"}, "total_fund_raised": {"kind": "basic", "name": "int"}, "number_of_investments": {"kind": "basic", "name": "int"}, "number_of_lead_investments": {"kind": "basic", "name": "int"}, "number_of_exits": {"kind": "basic", "name": "int"}, "number_of_acquisitions": {"kind": "basic", "name": "int"}}, "Funding": {"funding_type": {"kind": "basic", "name": "str"}, "money_raised": {"kind": "basic", "name": "int"}, "announced_date": {"kind": "record", "name": "Date"}, "number_of_investor": {"kind": "basic", "name": "int"}, "investor_list": {"kind": "list", "element": "Investor"}}, "LinkedinCompany": {"linkedin_internal_id": {"kind": "basic", "name": "str"}, "description": {"kind": "basic", "name": "str"}, "website": {"kind": "basic", "name": "str"}, "industry": {"kind": "basic", "name": "str"}, "company_size": {"kind": "tuple", "args": ["int", "int"]}, "company_size_on_linkedin": {"kind": "basic", "name": "int"}, "hq": {"kind": "record", "name": "CompanyLocation"}, "company_type": {"kind": "basic", "name": "str"}, "founded_year": {"kind": "basic", "name": "int"}, "specialities": {"kind": "list", "element": "str"}, "locations": {"kind": "list", "element": "CompanyLocation"}, "name": {"kind": "basic", "name": "str"}, "tagline": {"kind": "basic", "name": "str"}, "universal_name_id": {"kind": "basic", "name": "str"}, "profile_pic_url": {"kind": "basic", "name": "str"}, "background_cover_image_url": {"kind": "basic", "name": "str"}, "search_id": {"kind": "basic", "name": "str"}, "similar_companies": {"kind": "list", "element": "SimilarCompany"}, "updates": {"kind": "list", "element": "CompanyUpdate"}, "follower_count": {"kind": "basic", "name": "int"}, "acquisitions": {"kind": "record", "name": "Acquisition"}, "exit_data": {"kind": "list", "element": "Exit"}, "extra": {"kind": "record", "name": "CompanyDetails"}, "funding_data": {"kind": "list", "element": "Funding"}, "categories": {"kind": "list", "element": "str"}}, "EmployeeList": {"employees": {"kind": "list", "element": "ProfileUrl"}}, "JobListPage": {"job": {"kind": "list", "element": "Job"}, "next_page_no": {"kind": "basic", "name": "int"}, "next_page_api_url": {"kind": "basic", "name": "str"}, "previous_page_no": {"kind": "basic", "name": "int"}, "previous_page_api_url": {"kind": "basic", "name": "str"}}}}
+{
+    "endpoint": {
+      "/proxycurl/api/linkedin/company/employees/count": {
+        "method": "GET",
+        "title": "Employee Count Endpoint",
+        "docstring": "\n\n    Get a number of total employees of a Company.\n\n    This API endpoint is limited by LinkDB which is populated with profiles in the US, UK, Canada, Israel, Australia and Singapore. As such, this endpoint is best used to list employees working in companies based in the US, UK, Canada, Israel, Australia and Singapore only.\n\n    ",
+        "result_class": "EmployeeCount",
+        "url_params": {
+          "employment_status": {
+            "required": false,
+            "description": "\n    Parameter to tell the API to filter past or current employees.\n\n    Valid values are `current`, `past`, and `all`:\n\n    * `current` (default) : count current employees\n    * `past` : count past employees\n    * `all` : count current & past employees\n    ",
+            "example": "current",
+            "default": "current"
+          },
+          "url": {
+            "required": true,
+            "description": "\n    URL of the LinkedIn Company Profile to target.\n\n    URL should be in the format of `https://www.linkedin.com/company/<public_identifier>`\n    ",
+            "example": "https://www.linkedin.com/company/nubela"
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/profile/resolve/email": {
+        "method": "GET",
+        "title": "Reverse Work Email Lookup Endpoint",
+        "docstring": "Resolve LinkedIn Profile from a work email address",
+        "result_class": "UrlResult",
+        "url_params": {
+          "work_email": {
+            "required": true,
+            "description": "Work email address of the user",
+            "example": "danial@nubela.co"
+          }
+        }
+      },
+      "/proxycurl/api/v2/linkedin/company/job": {
+        "method": "GET",
+        "title": "Jobs Listing Endpoint",
+        "docstring": "List jobs posted by a company on LinkedIn",
+        "result_class": "JobListPage",
+        "url_params": {
+          "search_id": {
+            "required": true,
+            "description": "\n    The `search_id` of the company on LinkedIn.\n    You can get the `search_id` of a LinkedIn company via [Company Profile API](#company-api-linkedin-company-profile-endpoint).\n    ",
+            "example": "4999584"
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/company/employees": {
+        "method": "GET",
+        "title": "Employee Listing Endpoint",
+        "docstring": "\n\n    Get a list of employees of a Company.\n\n    This API endpoint is limited by LinkDB which is populated with profiles in the US, UK, Canada, Israel, Australia and Singapore. As such, this endpoint is best used to list employees working in companies based in the US, UK, Canada, Israel, Australia and Singapore only.\n    ",
+        "result_class": "EmployeeList",
+        "url_params": {
+          "employment_status": {
+            "required": false,
+            "description": "\n    Parameter to tell the API to return past or current employees.\n\n    Valid values are `current`, `past`, and `all`:\n\n    * `current` (default) : lists current employees\n    * `past` : lists past employees\n    * `all` : lists current & past employees\n    ",
+            "example": "current",
+            "default": "current"
+          },
+          "url": {
+            "required": true,
+            "description": "\n    URL of the LinkedIn Company Profile to target.\n\n    URL should be in the format of `https://www.linkedin.com/company/<public_identifier>`\n    ",
+            "example": "https://www.linkedin.com/company/nubela"
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/profile/resolve": {
+        "method": "GET",
+        "title": "Person Lookup Endpoint",
+        "docstring": "Resolve LinkedIn Profile",
+        "result_class": "UrlResult",
+        "url_params": {
+          "company_domain": {
+            "required": true,
+            "description": "Company name or domain",
+            "example": "gatesfoundation.org"
+          },
+          "location": {
+            "required": false,
+            "description": "\n    The location of this user.\n\n    Name of country, city or state.\n    ",
+            "example": "Singapore",
+            "default": ""
+          },
+          "title": {
+            "required": false,
+            "description": "Title that user is holding at his/her current job",
+            "example": "Co-chair",
+            "default": ""
+          },
+          "last_name": {
+            "required": false,
+            "description": "Last name of the user",
+            "example": "Gates",
+            "default": ""
+          },
+          "first_name": {
+            "required": true,
+            "description": "First name of the user",
+            "example": "Bill"
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/company/resolve": {
+        "method": "GET",
+        "title": "Company Lookup Endpoint",
+        "docstring": "Resolve Company LinkedIn Profile from company name, domain name and location.",
+        "result_class": "UrlResult",
+        "url_params": {
+          "location": {
+            "required": false,
+            "description": "\n    The location / region of company.\n    ISO 3166-1 alpha-2 codes\n    ",
+            "example": "sg",
+            "default": ""
+          },
+          "company_domain": {
+            "required": "Requires either `company_domain` or `company_name`",
+            "description": "Company website or Company domain",
+            "example": "accenture.com",
+            "default": ""
+          },
+          "company_name": {
+            "required": "Requires either `company_domain` or `company_name`",
+            "description": "Company Name",
+            "example": "Accenture",
+            "default": ""
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/profile/email": {
+        "method": "GET",
+        "title": "Work Email Lookup Endpoint",
+        "docstring": "\n    Lookup work email address of a LinkedIn Person Profile.\n\n    Email addresses returned are verified to not be role-based or catch-all emails. Email addresses\n    returned by our API endpoint come with a 95+% deliverability guarantee\n\n    **Endpoint behavior**\n\n    *This endpoint* **_may not_** *return results immediately.*\n\n    For some profiles, email addresses are returned immediately when the endpoint is called. For such\n    requests, we will respond with a `200` status code. Credits will be consumed immediately\n\n    Some profiles require more time to extract email address from. For such requests, we will respond\n    with a `202` status code. No credits are consumed.\n\n    If you provided a webhook in your request parameter, our application will call your webhook with\n    the result once. See `Webhook payload` below.\n\n    Alternatively, you can also poll (repeat the request) our API and we will return the result once it is\n    successful.\n\n    Successful responses to requests are cached for up to 24 hours. We will also not charge you for the\n    same request in a 24 hour window\n    ",
+        "result_class": "ExtractionEmailResult",
+        "url_params": {
+          "linkedin_profile_url": {
+            "required": true,
+            "description": "\n    Linkedin Profile URL of the person you want to\n    extract work email address from.\n    ",
+            "example": "https://sg.linkedin.com/in/steven-goh-6738131b"
+          },
+          "callback_url": {
+            "required": false,
+            "description": "\n    Webhook to notify your application when\n    the request has finished processing.\n    ",
+            "example": "https://webhook.site/29e12f17-d5a2-400a-9d08-42ee9d83600a",
+            "default": ""
+          }
+        }
+      },
+      "/proxycurl/api/find/company/role": {
+        "method": "GET",
+        "title": "Role Lookup Endpoint",
+        "docstring": "Finds the closest (person) profile with a given role in a Company. For example, you can use this endpoint to find the \"CTO\" of \"Apple\".",
+        "result_class": "RoleSearchResult",
+        "url_params": {
+          "role": {
+            "required": true,
+            "description": "Role of the profile that you are lookin up",
+            "example": "ceo"
+          },
+          "company_name": {
+            "required": true,
+            "description": "Name of the company that you are searching for",
+            "example": "nubela"
+          }
+        }
+      },
+      "/proxycurl/api/contact-api/personal-contact": {
+        "method": "GET",
+        "title": "Personal Contact Number Lookup Endpoint",
+        "docstring": "Given an LinkedIn profile, returns a list of personal contact numbers belonging to this identity.",
+        "result_class": "PDLPhoneNumberResult",
+        "url_params": {
+          "linkedin_profile_url": {
+            "required": true,
+            "description": "\n    LinkedIn Profile URL of the person you want to extract personal contact numbers from.\n    ",
+            "example": "https://linkedin.com/in/test-phone-number"
+          }
+        }
+      },
+      "/proxycurl/api/contact-api/personal-email": {
+        "method": "GET",
+        "title": "Personal Email Lookup Endpoint",
+        "docstring": "Given an LinkedIn profile, returns a list of personal emails belonging to this identity. Emails are verified to be deliverable.",
+        "result_class": "PDLEmailResult",
+        "url_params": {
+          "linkedin_profile_url": {
+            "required": true,
+            "description": "\n    LinkedIn Profile URL of the person you want to extract personal email addresses from.\n    ",
+            "example": "https://linkedin.com/in/steven-goh-6738131b"
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/company": {
+        "method": "GET",
+        "title": "Company Profile Endpoint",
+        "docstring": "Get structured data of a Company Profile",
+        "result_class": "LinkedinCompany",
+        "url_params": {
+          "categories": {
+            "required": false,
+            "description": "\n    Appends categories data of this company.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these categories (if available) for `1` extra credit.\n    ",
+            "example": "include",
+            "default": "exclude"
+          },
+          "funding_data": {
+            "required": false,
+            "description": "\n    Returns a list of funding rounds that this company has received.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these categories (if available) for `1` extra credit.\n    ",
+            "example": "include",
+            "default": "exclude"
+          },
+          "extra": {
+            "required": false,
+            "description": "\n    Enriches the Company Profile with extra details from external sources. Details include Crunchbase ranking, contact email, phone number, Facebook account, Twitter account, funding rounds and amount, IPO status, investor information, etc.\n    \n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these extra details (if available) for `1` extra credit.\n    ",
+            "example": "include",
+            "default": "exclude"
+
+          },
+          "exit_data": {
+            "required": false,
+            "description": "\n    Returns a list of investment portfolio exits.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these categories (if available) for `1` extra credit.\n    ",
+            "example": "include",
+            "default": "exclude"
+
+          },
+          "acquisitions": {
+            "required": false,
+            "description": "\n    Provides further enriched data on acquisitions made by this company from external sources.\n\n    Default value is `\"exclude\"`.\n    The other acceptable value is `\"include\"`, which will include these acquisition data (if available) for `1` extra credit.\n    ",
+            "example": "include",
+            "default": "exclude"
+
+          },
+          "url": {
+            "required": true,
+            "description": "\n    URL of the LinkedIn Company Profile to crawl.\n\n    URL should be in the format of `https://www.linkedin.com/company/<public_identifier>`\n    ",
+            "example": "https://www.linkedin.com/company/70982840/"
+          },
+          "use_cache": {
+            "required": false,
+            "description": "\n    `if-present` Fetches profile from cache regardless of age of profile. If profile is not available in cache, API will attempt to source profile externally.\n\n    `if-recent` The default behavior. API will make a best effort to return a fresh profile no older than 29 days.\n    ",
+            "example": "if-present",
+            "default": "if-recent"
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/school": {
+        "method": "GET",
+        "title": "School Profile Endpoint",
+        "docstring": "Get structured data of a LinkedIn School Profile",
+        "result_class": "LinkedinSchool",
+        "url_params": {
+          "url": {
+            "required": true,
+            "description": "\n    URL of the LinkedIn School Profile to crawl.\n\n    URL should be in the format of `https://www.linkedin.com/school/<public_identifier>`\n    ",
+            "example": "https://www.linkedin.com/school/national-university-of-singapore"
+          },
+          "use_cache": {
+            "required": false,
+            "description": "\n    `if-present` Fetches profile from cache regardless of age of profile. If profile is not available in cache, API will attempt to source profile externally..\n\n    `if-recent` The default behavior. API will make a best effort to return a fresh profile no older than 29 days.\n    ",
+            "example": "if-present",
+            "default": "if-recent"
+          }
+        }
+      },
+      "/proxycurl/api/linkedin/job": {
+        "method": "GET",
+        "title": "Job Profile Endpoint",
+        "docstring": "Get structured data of a LinkedIn Job Profile",
+        "result_class": "LinkedinJob",
+        "url_params": {
+          "url": {
+            "required": true,
+            "description": "\n    URL of the LinkedIn Job Profile to target.\n\n    URL should be in the format of `https://www.linkedin.com/jobs/view/<job_id>`.\n    [Jobs Listing Endpoint](#jobs-api-linkedin-jobs-listing-endpoint) can be used to retrieve a job URL.\n    ",
+            "example": "https://www.linkedin.com/jobs/view/2794284647/"
+          }
+        }
+      },
+      "/proxycurl/api/v2/linkedin": {
+        "method": "GET",
+        "title": "Person Profile Endpoint",
+        "docstring": "\n    Get structured data of a Personal Profile\n    ",
+        "result_class": "PersonEndpointResponse",
+        "url_params": {
+          "url": {
+            "required": true,
+            "description": "\n    URL of the LinkedIn Profile to crawl.\n\n    URL should be in the format of `https://www.linkedin.com/in/<public-identifier>`\n    ",
+            "example": "https://www.linkedin.com/in/joho-balboa/"
+          },
+          "use_cache": {
+            "required": false,
+            "description": "\n    `if-present` Fetches profile from cache regardless of age of profile. If profile is not available in cache, API will attempt to source profile externally.\n\n    `if-recent` The default behavior. API will make a best effort to return a fresh profile no older than 29 days.\n    ",
+            "example": "if-present",
+            "default": "if-recent"
+          },
+          "skills": {
+            "required": false,
+            "description": "\n    Include skills data from external sources.\n\n    This parameter accepts the following values:\n    - `exclude` (default value) - Does not provide skills data field.\n    - `include` - Append skills data to the person profile object. Costs an extra `1` credit on top of the cost of the base endpoint (if data is available).\n    ",
+            "example": "include",
+            "default": "exclude"
+          },
+          "inferred_salary": {
+            "required": false,
+            "description": "\n    Include inferred salary range from external sources.\n\n    This parameter accepts the following values:\n    - `exclude` (default value) - Does not provide inferred salary data field.\n    - `include` - Append inferred salary range data to the person profile object. Costs an extra `1` credit on top of the cost of the base endpoint (if data is available).\n    ",
+            "example": "include",
+            "default": "exclude"
+          },
+          "extra": {
+            "required": false,
+            "description": "\n    Enriches the Person Profile with extra details from external sources. Extra details include IDs of social media accounts such as Github and Facebook, gender, birth date, industry and interests.\n\n    This parameter accepts the following values:\n    - `exclude` (default value) - Does not provide extra data field.\n    - `include` - Append extra data to the person profile object. Costs an extra `1` credit on top of the cost of the base endpoint (if data is available).\n    ",
+            "example": "include",
+            "default": "exclude"
+          }
+        }
+      },
+      "/proxycurl/api/disposable-email": {
+        "method": "GET",
+        "title": "Disposable Email Address Check Endpoint",
+        "docstring": "Given an email address, checks if the email address belongs to a disposable email service.",
+        "result_class": "DisposableEmail",
+        "url_params": {
+          "email": {
+            "required": true,
+            "description": "Email address to check",
+            "example": "steven@nubela.co"
+          }
+        }
+      },
+      "/proxycurl/api/reveal/company": {
+        "method": "GET",
+        "title": "Reveal Endpoint",
+        "docstring": "Deanonymize an IPv4 address and associate the Company behind the IPv4 address.",
+        "result_class": "CompanyReveal",
+        "url_params": {
+          "ip": {
+            "required": true,
+            "description": "The target IPv4 address.",
+            "example": "8.8.8.8"
+          },
+          "role": {
+            "required": false,
+            "description": "\nLookup and append an employee of a certain role of the company.\nWithin the same API call, you can choose to lookup a person with a given role within this organisation that you might want to reach out to.",
+            "example": "ceo",
+            "default": ""
+          },
+          "role_personal_email": {
+            "required": false,
+            "description": "\nAppend personal email addresses to the response if the system finds a relevant person profile.",
+            "example": "include",
+            "default": "exclude"
+          },
+          "role_contact_number": {
+            "required": false,
+            "description": "\nAppend personal contact numbers to teh response if the system finds a relevant person profile.",
+            "example": "include",
+            "default": "exclude"
+          }
+        }
+      },
+      "/proxycurl/api/credit-balance": {
+        "method": "GET",
+        "title": "View Credit Balance Endpoint",
+        "docstring": "Get your current credit(s) balance",
+        "result_class": "CreditBalance"
+      }
+    },
+    "classes": {
+      "EmployeeCount": {
+        "total_employee": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "UrlResult": {
+        "url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Job": {
+        "company": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "company_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "job_title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "job_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "list_date": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "location": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "ProfileUrl": {
+        "profile_url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "ExtractionEmailResult": {
+        "email": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "status": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "RoleSearchResult": {
+        "linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "PDLPhoneNumberResult": {
+        "numbers": {
+          "kind": "list",
+          "element": "str"
+        }
+      },
+      "PDLEmailResult": {
+        "emails": {
+          "kind": "list",
+          "element": "str"
+        }
+      },
+      "Investor": {
+        "linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "type": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Exit": {
+        "linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "crunchbase_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "SimilarCompany": {
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "link": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "industry": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "location": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "CompanyLocation": {
+        "country": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "city": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "postal_code": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "line_1": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "is_hq": {
+          "kind": "basic",
+          "name": "bool"
+        },
+        "state": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "LinkedinJob": {
+        "linkedin_internal_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "job_description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "apply_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "location": {
+          "kind": "record",
+          "name": "Dict"
+        },
+        "company": {
+          "kind": "record",
+          "name": "Dict"
+        },
+        "seniority_level": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "industry": {
+          "kind": "list",
+          "element": "str"
+        },
+        "employment_type": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "job_functions": {
+          "kind": "list",
+          "element": "str"
+        },
+        "total_applicants": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "InferredSalary": {
+        "min": {
+          "kind": "basic",
+          "name": "float"
+        },
+        "max": {
+          "kind": "basic",
+          "name": "float"
+        }
+      },
+      "PersonGroup": {
+        "profile_pic_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "SimilarProfile": {
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "link": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "summary": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "location": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Activity": {
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "link": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "activity_status": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "PeopleAlsoViewed": {
+        "link": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "summary": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "location": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Course": {
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "number": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Date": {
+        "day": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "month": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "year": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "DisposableEmail": {
+        "is_disposable_email": {
+          "kind": "basic",
+          "name": "bool"
+        },
+        "is_free_email": {
+          "kind": "basic",
+          "name": "bool"
+        }
+      },
+      "CreditBalance": {
+        "credit_balance": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "Experience": {
+        "starts_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "ends_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "company": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "company_linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "location": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "logo_url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Education": {
+        "starts_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "ends_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "field_of_study": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "degree_name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "school": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "school_linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "logo_url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "AccomplishmentOrg": {
+        "starts_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "ends_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "org_name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Publication": {
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "publisher": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "published_on": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "HonourAward": {
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "issuer": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "issued_on": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Patent": {
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "issuer": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "issued_on": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "application_number": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "patent_number": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Project": {
+        "starts_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "ends_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "TestScore": {
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "score": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "date_on": {
+          "kind": "record",
+          "name": "Date"
+        }
+      },
+      "VolunteeringExperience": {
+        "starts_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "ends_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "cause": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "company": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "company_linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "logo_url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Certification": {
+        "starts_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "ends_at": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "license_number": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "display_source": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "authority": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "Article": {
+        "title": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "link": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "published_date": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "author": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "image_url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      },
+      "PersonEndpointResponse": {
+        "public_identifier": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "profile_pic_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "background_cover_image_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "first_name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "last_name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "full_name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "occupation": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "headline": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "summary": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "country": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "country_full_name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "city": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "state": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "experiences": {
+          "kind": "list",
+          "element": "Experience"
+        },
+        "education": {
+          "kind": "list",
+          "element": "Education"
+        },
+        "languages": {
+          "kind": "list",
+          "element": "str"
+        },
+        "accomplishment_organisations": {
+          "kind": "list",
+          "element": "AccomplishmentOrg"
+        },
+        "accomplishment_publications": {
+          "kind": "list",
+          "element": "Publication"
+        },
+        "accomplishment_honors_awards": {
+          "kind": "list",
+          "element": "HonourAward"
+        },
+        "accomplishment_patents": {
+          "kind": "list",
+          "element": "Patent"
+        },
+        "accomplishment_courses": {
+          "kind": "list",
+          "element": "Course"
+        },
+        "accomplishment_projects": {
+          "kind": "list",
+          "element": "Project"
+        },
+        "accomplishment_test_scores": {
+          "kind": "list",
+          "element": "TestScore"
+        },
+        "volunteer_work": {
+          "kind": "list",
+          "element": "VolunteeringExperience"
+        },
+        "certifications": {
+          "kind": "list",
+          "element": "Certification"
+        },
+        "connections": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "people_also_viewed": {
+          "kind": "list",
+          "element": "PeopleAlsoViewed"
+        },
+        "recommendations": {
+          "kind": "list",
+          "element": "str"
+        },
+        "activities": {
+          "kind": "list",
+          "element": "Activity"
+        },
+        "similarly_named_profiles": {
+          "kind": "list",
+          "element": "SimilarProfile"
+        },
+        "articles": {
+          "kind": "list",
+          "element": "Article"
+        },
+        "groups": {
+          "kind": "list",
+          "element": "PersonGroup"
+        },
+        "skills": {
+          "kind": "list",
+          "element": "str"
+        },
+        "inferred_salary": {
+          "kind": "record",
+          "name": "InferredSalary"
+        },
+        "github": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "facebook": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "gender": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "birth_date": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "industry": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "interests": {
+          "kind": "list",
+          "element": "str"
+        }
+      },
+      "CompanyUpdate": {
+        "article_link": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "image": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "posted_on": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "text": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "total_likes": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "LinkedinSchool": {
+        "linkedin_internal_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "website": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "industry": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "company_size": {
+          "kind": "tuple",
+          "args": [
+            "int",
+            "int"
+          ]
+        },
+        "company_size_on_linkedin": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "hq": {
+          "kind": "record",
+          "name": "CompanyLocation"
+        },
+        "company_type": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "founded_year": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "specialities": {
+          "kind": "list",
+          "element": "str"
+        },
+        "locations": {
+          "kind": "list",
+          "element": "CompanyLocation"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "tagline": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "universal_name_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "profile_pic_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "background_cover_image_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "search_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "similar_companies": {
+          "kind": "list",
+          "element": "SimilarCompany"
+        },
+        "updates": {
+          "kind": "list",
+          "element": "CompanyUpdate"
+        },
+        "follower_count": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "AcquiredCompany": {
+        "linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "crunchbase_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "announced_date": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "price": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "Acquisitor": {
+        "linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "crunchbase_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "announced_date": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "price": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "Acquisition": {
+        "acquired": {
+          "kind": "list",
+          "element": "AcquiredCompany"
+        },
+        "acquired_by": {
+          "kind": "record",
+          "name": "Acquisitor"
+        }
+      },
+      "CompanyDetails": {
+        "ipo_status": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "crunchbase_rank": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "founding_date": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "operating_status": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "company_type": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "contact_email": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "phone_number": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "facebook_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "twitter_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "number_of_funding_rounds": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "total_funding_amount": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "stock_symbol": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "ipo_date": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "number_of_lead_investors": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "number_of_investors": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "total_fund_raised": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "number_of_investments": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "number_of_lead_investments": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "number_of_exits": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "number_of_acquisitions": {
+          "kind": "basic",
+          "name": "int"
+        }
+      },
+      "Funding": {
+        "funding_type": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "money_raised": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "announced_date": {
+          "kind": "record",
+          "name": "Date"
+        },
+        "number_of_investor": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "investor_list": {
+          "kind": "list",
+          "element": "Investor"
+        }
+      },
+      "LinkedinCompany": {
+        "linkedin_internal_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "description": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "website": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "industry": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "company_size": {
+          "kind": "tuple",
+          "args": [
+            "int",
+            "int"
+          ]
+        },
+        "company_size_on_linkedin": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "hq": {
+          "kind": "record",
+          "name": "CompanyLocation"
+        },
+        "company_type": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "founded_year": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "specialities": {
+          "kind": "list",
+          "element": "str"
+        },
+        "locations": {
+          "kind": "list",
+          "element": "CompanyLocation"
+        },
+        "name": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "tagline": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "universal_name_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "profile_pic_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "background_cover_image_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "search_id": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "similar_companies": {
+          "kind": "list",
+          "element": "SimilarCompany"
+        },
+        "updates": {
+          "kind": "list",
+          "element": "CompanyUpdate"
+        },
+        "follower_count": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "acquisitions": {
+          "kind": "record",
+          "name": "Acquisition"
+        },
+        "exit_data": {
+          "kind": "list",
+          "element": "Exit"
+        },
+        "extra": {
+          "kind": "record",
+          "name": "CompanyDetails"
+        },
+        "funding_data": {
+          "kind": "list",
+          "element": "Funding"
+        },
+        "categories": {
+          "kind": "list",
+          "element": "str"
+        }
+      },
+      "EmployeeList": {
+        "employees": {
+          "kind": "list",
+          "element": "ProfileUrl"
+        }
+      },
+      "CompanyReveal": {
+        "company": {
+          "kind": "record",
+          "name": "LinkedinCompany"
+        },
+        "company_linkedin_profile_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "role_contact_number": {
+          "kind": "list",
+          "element": "str"
+        },
+        "role_personal_email": {
+          "kind": "list",
+          "element": "str"
+        },
+        "role_profile": {
+          "kind": "record",
+          "name": "PersonEndpointResponse"
+        }
+      },
+      "JobListPage": {
+        "job": {
+          "kind": "list",
+          "element": "Job"
+        },
+        "next_page_no": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "next_page_api_url": {
+          "kind": "basic",
+          "name": "str"
+        },
+        "previous_page_no": {
+          "kind": "basic",
+          "name": "int"
+        },
+        "previous_page_api_url": {
+          "kind": "basic",
+          "name": "str"
+        }
+      }
+    }
+  }
