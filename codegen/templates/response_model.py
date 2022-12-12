@@ -1,4 +1,10 @@
-from typing import TypedDict, List, Dict, Tuple
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import TypedDict, List, Dict, Tuple
+else:
+    from typing_extensions import TypedDict
+    from typing import List, Dict, Tuple
 
 {%- for result_class in result_classes %}
 {%- macro parse_datatype(datatype) %}
