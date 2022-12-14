@@ -1,5 +1,5 @@
 import asyncio
-from proxycurl.asyncio import Proxycurl, do_bulk
+from proxycurl_py.asyncio import Proxycurl, do_bulk
 import csv
 
 proxycurl = Proxycurl()

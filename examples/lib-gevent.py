@@ -1,4 +1,4 @@
-from proxycurl.gevent import Proxycurl, do_bulk
+from proxycurl_py.gevent import Proxycurl, do_bulk
 import csv
 
 proxycurl = Proxycurl()

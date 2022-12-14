@@ -1,4 +1,4 @@
-from proxycurl.twisted import Proxycurl, do_bulk
+from proxycurl_py.twisted import Proxycurl, do_bulk
 from twisted.internet import reactor
 from twisted.internet.defer import inlineCallbacks
 import csv
