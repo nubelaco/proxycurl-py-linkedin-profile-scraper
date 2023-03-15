@@ -1,8 +1,8 @@
-from proxycurl.config import (
+from proxycurl_py.config import (
     BASE_URL, PROXYCURL_API_KEY, TIMEOUT, MAX_RETRIES, MAX_BACKOFF_SECONDS
 )
-from proxycurl.gevent.base import ProxycurlBase
-from proxycurl.models import (
+from proxycurl_py.gevent.base import ProxycurlBase
+from proxycurl_py.models import (
     {%- for namespace in ns_data %}
     {%- for result_class in ns_data[namespace]['result_classes'] %}
     {{result_class}},
