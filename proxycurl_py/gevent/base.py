@@ -2,7 +2,7 @@ import gevent
 from gevent import monkey
 monkey.patch_all()
 from gevent.queue import Empty, Queue
-from proxycurl.config import MAX_WORKERS
+from proxycurl_py.config import MAX_WORKERS
 import requests
 from dataclasses import dataclass
 from typing import (

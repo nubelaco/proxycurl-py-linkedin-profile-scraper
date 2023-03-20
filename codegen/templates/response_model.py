@@ -9,6 +9,23 @@ else:
     from typing_extensions import TypedDict
     from typing import List, Dict, Tuple
 
+
+NoneType = type(None)
+class UnknownType(object):
+    pass
+
+
+{%- for result_class in result_classes['enums'] %}
+
+
+class {{result_class}}(Enum):
+{%- for param in result_classes['enums'][result_class] %}
+    {{param}} = {{result_classes['enums'][result_class][param]}}
+{%- endfor %}
+
+{%- endfor %}
+
+
 {%- for result_class in result_classes['classes'] %}
 {%- macro parse_datatype(datatype) %}
 {%- if datatype['kind'] == 'basic' %}{{datatype['name']}}{%- endif %}
@@ -25,19 +42,4 @@ class {{result_class}}(TypedDict):
 {%- endfor %}
 
 {%- endfor %}
-
-
-{%- for result_class in result_classes['enums'] %}
-
-
-class {{result_class}}(Enum):
-{%- for param in result_classes['enums'][result_class] %}
-    {{param}} = {{result_classes['enums'][result_class][param]}}
-{%- endfor %}
-
-{%- endfor %}
-
-
-class UnknownType(object):
-    pass
 
