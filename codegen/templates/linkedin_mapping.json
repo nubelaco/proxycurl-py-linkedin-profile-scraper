@@ -30,10 +30,10 @@
         "endpoint": "/proxycurl/api/linkedin/company/employees/count"
     },
     "linkedin.company.employee_list": {
-        "endpoint": "/proxycurl/api/linkedin/company/employees"
+        "endpoint": "/proxycurl/api/linkedin/company/employees/"
     },
     "linkedin.company.role_lookup": {
-        "endpoint": "/proxycurl/api/find/company/role"
+        "endpoint": "/proxycurl/api/find/company/role/"
     },
     "linkedin.company.reveal": {
         "endpoint": "/proxycurl/api/reveal/company"

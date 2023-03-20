@@ -2,7 +2,7 @@ import asyncio
 from asyncio.queues import QueueEmpty
 import aiohttp
 import json
-from proxycurl.config import MAX_WORKERS
+from proxycurl_py.config import MAX_WORKERS
 from dataclasses import dataclass
 from typing import (
     Generic,
