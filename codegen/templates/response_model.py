@@ -5,10 +5,10 @@ import typing
 from enum import Enum
 
 if sys.version_info >= (3, 8):
-    from typing import TypedDict, List, Dict, Tuple
+    from typing import TypedDict, List, Dict, Tuple, Optional
 else:
     from typing_extensions import TypedDict
-    from typing import List, Dict, Tuple
+    from typing import List, Dict, Tuple, Optional
 
 
 NoneType = type(None)

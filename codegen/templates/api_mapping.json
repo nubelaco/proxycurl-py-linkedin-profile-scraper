@@ -619,7 +619,7 @@
       },
       "linkedin_employee_count": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "linkdb_employee_count": {
         "kind": "basic",
@@ -633,27 +633,27 @@
     "JobListEntry": {
       "company": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "job_title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "job_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "list_date": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "location": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "ProfilePicture": {
@@ -671,157 +671,157 @@
     "PDLPhoneNumberResult": {
       "numbers": {
         "kind": "typing",
-        "element": "typing.List[str]"
+        "element": "List[str]"
       }
     },
     "PDLEmailResult": {
       "emails": {
         "kind": "typing",
-        "element": "typing.List[str]"
+        "element": "List[str]"
       },
       "invalid_emails": {
         "kind": "typing",
-        "element": "typing.List[str]"
+        "element": "List[str]"
       }
     },
     "Investor": {
       "linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "type": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Exit": {
       "linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "crunchbase_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "JobCompany": {
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "logo": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "JobLocation": {
       "country": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "region": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "city": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "postal_code": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "latitude": {
         "kind": "typing",
-        "element": "typing.Optional[float]"
+        "element": "Optional[float]"
       },
       "longitude": {
         "kind": "typing",
-        "element": "typing.Optional[float]"
+        "element": "Optional[float]"
       },
       "street": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "CompanySocialNetworkingService": {
       "service": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "canonical_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "internal_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "AffiliatedCompany": {
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "link": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "industry": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "location": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "SimilarCompany": {
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "link": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "industry": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "location": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "CompanyLocation": {
       "country": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "city": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "postal_code": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "line_1": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "is_hq": {
         "kind": "basic",
@@ -829,129 +829,129 @@
       },
       "state": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "PersonExtra": {
       "github_profile_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "facebook_profile_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "twitter_profile_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "InferredSalary": {
       "min": {
         "kind": "typing",
-        "element": "typing.Optional[float]"
+        "element": "Optional[float]"
       },
       "max": {
         "kind": "typing",
-        "element": "typing.Optional[float]"
+        "element": "Optional[float]"
       }
     },
     "PersonSocialNetworkingService": {
       "service": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "canonical_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "internal_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "PersonGroup": {
       "profile_pic_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "SimilarProfile": {
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "link": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "summary": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "location": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Activity": {
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "link": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "activity_status": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "PeopleAlsoViewed": {
       "link": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "summary": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "location": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Course": {
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "number": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Date": {
       "day": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "month": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "year": {
         "kind": "basic",
@@ -977,771 +977,771 @@
     "Experience": {
       "starts_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "ends_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "company": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company_linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "location": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "logo_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Education": {
       "starts_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "ends_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "field_of_study": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "degree_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "school": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "school_linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "logo_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "grade": {
         "kind": "typing",
-        "element": "typing.Union[str, NoneType, UnknownType]"
+        "element": "Union[str, NoneType, UnknownType]"
       },
       "activities_and_societies": {
         "kind": "typing",
-        "element": "typing.Union[str, NoneType, UnknownType]"
+        "element": "Union[str, NoneType, UnknownType]"
       }
     },
     "AccomplishmentOrg": {
       "starts_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "ends_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "org_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Publication": {
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "publisher": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "published_on": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "HonourAward": {
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "issuer": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "issued_on": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Patent": {
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "issuer": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "issued_on": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "application_number": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "patent_number": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Project": {
       "starts_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "ends_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "TestScore": {
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "score": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "date_on": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "VolunteeringExperience": {
       "starts_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "ends_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "cause": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company_linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "logo_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Certification": {
       "starts_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "ends_at": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "license_number": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "display_source": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "authority": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "Article": {
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "link": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "published_date": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "author": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "image_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "PersonEndpointResponse": {
       "public_identifier": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile_pic_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "background_cover_image_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "first_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "last_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "full_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "follower_count": {
         "kind": "typing",
-        "element": "typing.Union[int, NoneType, UnknownType]"
+        "element": "Union[int, NoneType, UnknownType]"
       },
       "occupation": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "headline": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "summary": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "country": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "country_full_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "city": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "state": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "experiences": {
         "kind": "typing",
-        "element": "typing.Sequence[Experience]"
+        "element": "list[Experience]"
       },
       "education": {
         "kind": "typing",
-        "element": "typing.Sequence[Education]"
+        "element": "list[Education]"
       },
       "languages": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "accomplishment_organisations": {
         "kind": "typing",
-        "element": "typing.Sequence[AccomplishmentOrg]"
+        "element": "list[AccomplishmentOrg]"
       },
       "accomplishment_publications": {
         "kind": "typing",
-        "element": "typing.Sequence[Publication]"
+        "element": "list[Publication]"
       },
       "accomplishment_honors_awards": {
         "kind": "typing",
-        "element": "typing.Sequence[HonourAward]"
+        "element": "list[HonourAward]"
       },
       "accomplishment_patents": {
         "kind": "typing",
-        "element": "typing.Sequence[Patent]"
+        "element": "list[Patent]"
       },
       "accomplishment_courses": {
         "kind": "typing",
-        "element": "typing.Sequence[Course]"
+        "element": "list[Course]"
       },
       "accomplishment_projects": {
         "kind": "typing",
-        "element": "typing.Sequence[Project]"
+        "element": "list[Project]"
       },
       "accomplishment_test_scores": {
         "kind": "typing",
-        "element": "typing.Sequence[TestScore]"
+        "element": "list[TestScore]"
       },
       "volunteer_work": {
         "kind": "typing",
-        "element": "typing.Sequence[VolunteeringExperience]"
+        "element": "list[VolunteeringExperience]"
       },
       "certifications": {
         "kind": "typing",
-        "element": "typing.Sequence[Certification]"
+        "element": "list[Certification]"
       },
       "connections": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "people_also_viewed": {
         "kind": "typing",
-        "element": "typing.Sequence[PeopleAlsoViewed]"
+        "element": "list[PeopleAlsoViewed]"
       },
       "recommendations": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "activities": {
         "kind": "typing",
-        "element": "typing.Sequence[Activity]"
+        "element": "list[Activity]"
       },
       "similarly_named_profiles": {
         "kind": "typing",
-        "element": "typing.Sequence[SimilarProfile]"
+        "element": "list[SimilarProfile]"
       },
       "articles": {
         "kind": "typing",
-        "element": "typing.Sequence[Article]"
+        "element": "list[Article]"
       },
       "groups": {
         "kind": "typing",
-        "element": "typing.Sequence[PersonGroup]"
+        "element": "list[PersonGroup]"
       },
       "phone_numbers": {
         "kind": "typing",
-        "element": "typing.Union[list[str], UnknownType]"
+        "element": "Union[list[str], UnknownType]"
       },
       "social_networking_services": {
         "kind": "typing",
-        "element": "typing.Union[list[PersonSocialNetworkingService], UnknownType]"
+        "element": "Union[list[PersonSocialNetworkingService], UnknownType]"
       },
       "skills": {
         "kind": "typing",
-        "element": "typing.Union[typing.Sequence[str], UnknownType]"
+        "element": "Union[list[str], UnknownType]"
       },
       "inferred_salary": {
         "kind": "typing",
-        "element": "typing.Optional[InferredSalary]"
+        "element": "Optional[InferredSalary]"
       },
       "gender": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "birth_date": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "industry": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "extra": {
         "kind": "typing",
-        "element": "typing.Optional[PersonExtra]"
+        "element": "Optional[PersonExtra]"
       },
       "interests": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "personal_emails": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "personal_numbers": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       }
     },
     "CompanyUpdate": {
       "article_link": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "image": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "posted_on": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "text": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "total_likes": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       }
     },
     "OrganizationBase": {
       "linkedin_internal_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "website": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "industry": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company_size": {
         "kind": "typing",
-        "element": "typing.Tuple[typing.Optional[int], typing.Optional[int]]"
+        "element": "Tuple[Optional[int], Optional[int]]"
       },
       "company_size_on_linkedin": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "hq": {
         "kind": "typing",
-        "element": "typing.Optional[CompanyLocation]"
+        "element": "Optional[CompanyLocation]"
       },
       "company_type": {
         "kind": "typing",
-        "element": "typing.Optional[CompanyType]"
+        "element": "Optional[CompanyType]"
       },
       "founded_year": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "specialities": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "locations": {
         "kind": "typing",
-        "element": "typing.Sequence[CompanyLocation]"
+        "element": "list[CompanyLocation]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "tagline": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "universal_name_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile_pic_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "background_cover_image_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "search_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "similar_companies": {
         "kind": "typing",
-        "element": "typing.Sequence[SimilarCompany]"
+        "element": "list[SimilarCompany]"
       },
       "affiliated_companies": {
         "kind": "typing",
-        "element": "typing.Union[typing.Sequence[AffiliatedCompany], UnknownType]"
+        "element": "Union[list[AffiliatedCompany], UnknownType]"
       },
       "updates": {
         "kind": "typing",
-        "element": "typing.Sequence[CompanyUpdate]"
+        "element": "list[CompanyUpdate]"
       },
       "follower_count": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "social_networking_services": {
         "kind": "typing",
-        "element": "typing.Union[list[CompanySocialNetworkingService], UnknownType]"
+        "element": "Union[list[CompanySocialNetworkingService], UnknownType]"
       }
     },
     "Person": {
       "public_identifier": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile_pic_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "background_cover_image_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "first_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "last_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "full_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "follower_count": {
         "kind": "typing",
-        "element": "typing.Union[int, NoneType, UnknownType]"
+        "element": "Union[int, NoneType, UnknownType]"
       },
       "occupation": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "headline": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "summary": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "country": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "country_full_name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "city": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "state": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "experiences": {
         "kind": "typing",
-        "element": "typing.Sequence[Experience]"
+        "element": "list[Experience]"
       },
       "education": {
         "kind": "typing",
-        "element": "typing.Sequence[Education]"
+        "element": "list[Education]"
       },
       "languages": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "accomplishment_organisations": {
         "kind": "typing",
-        "element": "typing.Sequence[AccomplishmentOrg]"
+        "element": "list[AccomplishmentOrg]"
       },
       "accomplishment_publications": {
         "kind": "typing",
-        "element": "typing.Sequence[Publication]"
+        "element": "list[Publication]"
       },
       "accomplishment_honors_awards": {
         "kind": "typing",
-        "element": "typing.Sequence[HonourAward]"
+        "element": "list[HonourAward]"
       },
       "accomplishment_patents": {
         "kind": "typing",
-        "element": "typing.Sequence[Patent]"
+        "element": "list[Patent]"
       },
       "accomplishment_courses": {
         "kind": "typing",
-        "element": "typing.Sequence[Course]"
+        "element": "list[Course]"
       },
       "accomplishment_projects": {
         "kind": "typing",
-        "element": "typing.Sequence[Project]"
+        "element": "list[Project]"
       },
       "accomplishment_test_scores": {
         "kind": "typing",
-        "element": "typing.Sequence[TestScore]"
+        "element": "list[TestScore]"
       },
       "volunteer_work": {
         "kind": "typing",
-        "element": "typing.Sequence[VolunteeringExperience]"
+        "element": "list[VolunteeringExperience]"
       },
       "certifications": {
         "kind": "typing",
-        "element": "typing.Sequence[Certification]"
+        "element": "list[Certification]"
       },
       "connections": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "people_also_viewed": {
         "kind": "typing",
-        "element": "typing.Sequence[PeopleAlsoViewed]"
+        "element": "list[PeopleAlsoViewed]"
       },
       "recommendations": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "activities": {
         "kind": "typing",
-        "element": "typing.Sequence[Activity]"
+        "element": "list[Activity]"
       },
       "similarly_named_profiles": {
         "kind": "typing",
-        "element": "typing.Sequence[SimilarProfile]"
+        "element": "list[SimilarProfile]"
       },
       "articles": {
         "kind": "typing",
-        "element": "typing.Sequence[Article]"
+        "element": "list[Article]"
       },
       "groups": {
         "kind": "typing",
-        "element": "typing.Sequence[PersonGroup]"
+        "element": "list[PersonGroup]"
       },
       "phone_numbers": {
         "kind": "typing",
-        "element": "typing.Union[list[str], UnknownType]"
+        "element": "Union[list[str], UnknownType]"
       },
       "social_networking_services": {
         "kind": "typing",
-        "element": "typing.Union[list[PersonSocialNetworkingService], UnknownType]"
+        "element": "Union[list[PersonSocialNetworkingService], UnknownType]"
       },
       "skills": {
         "kind": "typing",
-        "element": "typing.Union[typing.Sequence[str], UnknownType]"
+        "element": "Union[list[str], UnknownType]"
       }
     },
     "CompanyReveal": {
       "company": {
         "kind": "typing",
-        "element": "typing.Optional[OrganizationBase]"
+        "element": "Optional[OrganizationBase]"
       },
       "company_linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "role_contact_number": {
         "kind": "typing",
-        "element": "typing.Optional[typing.List[str]]"
+        "element": "Optional[List[str]]"
       },
       "role_personal_email": {
         "kind": "typing",
-        "element": "typing.Optional[typing.List[str]]"
+        "element": "Optional[List[str]]"
       },
       "role_profile": {
         "kind": "typing",
-        "element": "typing.Optional[Person]"
+        "element": "Optional[Person]"
       }
     },
     "JobProfile": {
       "linkedin_internal_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "job_description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "apply_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "title": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "location": {
         "kind": "record",
@@ -1753,7 +1753,7 @@
       },
       "seniority_level": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "industry": {
         "kind": "typing",
@@ -1761,7 +1761,7 @@
       },
       "employment_type": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "job_functions": {
         "kind": "typing",
@@ -1769,363 +1769,363 @@
       },
       "total_applicants": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       }
     },
     "LinkedinSchool": {
       "linkedin_internal_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "website": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "industry": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company_size": {
         "kind": "typing",
-        "element": "typing.Tuple[typing.Optional[int], typing.Optional[int]]"
+        "element": "Tuple[Optional[int], Optional[int]]"
       },
       "company_size_on_linkedin": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "hq": {
         "kind": "typing",
-        "element": "typing.Optional[CompanyLocation]"
+        "element": "Optional[CompanyLocation]"
       },
       "company_type": {
         "kind": "typing",
-        "element": "typing.Optional[CompanyType]"
+        "element": "Optional[CompanyType]"
       },
       "founded_year": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "specialities": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "locations": {
         "kind": "typing",
-        "element": "typing.Sequence[CompanyLocation]"
+        "element": "list[CompanyLocation]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "tagline": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "universal_name_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile_pic_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "background_cover_image_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "search_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "similar_companies": {
         "kind": "typing",
-        "element": "typing.Sequence[SimilarCompany]"
+        "element": "list[SimilarCompany]"
       },
       "affiliated_companies": {
         "kind": "typing",
-        "element": "typing.Union[typing.Sequence[AffiliatedCompany], UnknownType]"
+        "element": "Union[list[AffiliatedCompany], UnknownType]"
       },
       "updates": {
         "kind": "typing",
-        "element": "typing.Sequence[CompanyUpdate]"
+        "element": "list[CompanyUpdate]"
       },
       "follower_count": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "social_networking_services": {
         "kind": "typing",
-        "element": "typing.Union[list[CompanySocialNetworkingService], UnknownType]"
+        "element": "Union[list[CompanySocialNetworkingService], UnknownType]"
       }
     },
     "AcquiredCompany": {
       "linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "crunchbase_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "announced_date": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "price": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       }
     },
     "Acquisitor": {
       "linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "crunchbase_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "announced_date": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "price": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       }
     },
     "Acquisition": {
       "acquired": {
         "kind": "typing",
-        "element": "typing.Sequence[AcquiredCompany]"
+        "element": "list[AcquiredCompany]"
       },
       "acquired_by": {
         "kind": "typing",
-        "element": "typing.Optional[Acquisitor]"
+        "element": "Optional[Acquisitor]"
       }
     },
     "CompanyDetails": {
       "ipo_status": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "crunchbase_rank": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "founding_date": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "operating_status": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company_type": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "contact_email": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "phone_number": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "facebook_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "twitter_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "number_of_funding_rounds": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "total_funding_amount": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "stock_symbol": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "ipo_date": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "number_of_lead_investors": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "number_of_investors": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "total_fund_raised": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "number_of_investments": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "number_of_lead_investments": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "number_of_exits": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "number_of_acquisitions": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       }
     },
     "Funding": {
       "funding_type": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "money_raised": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "announced_date": {
         "kind": "typing",
-        "element": "typing.Optional[Date]"
+        "element": "Optional[Date]"
       },
       "number_of_investor": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "investor_list": {
         "kind": "typing",
-        "element": "typing.Optional[typing.Sequence[Investor]]"
+        "element": "Optional[list[Investor]]"
       }
     },
     "LinkedinCompany": {
       "linkedin_internal_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "description": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "website": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "industry": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "company_size": {
         "kind": "typing",
-        "element": "typing.Tuple[typing.Optional[int], typing.Optional[int]]"
+        "element": "Tuple[Optional[int], Optional[int]]"
       },
       "company_size_on_linkedin": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "hq": {
         "kind": "typing",
-        "element": "typing.Optional[CompanyLocation]"
+        "element": "Optional[CompanyLocation]"
       },
       "company_type": {
         "kind": "typing",
-        "element": "typing.Optional[CompanyType]"
+        "element": "Optional[CompanyType]"
       },
       "founded_year": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "specialities": {
         "kind": "typing",
-        "element": "typing.Sequence[str]"
+        "element": "list[str]"
       },
       "locations": {
         "kind": "typing",
-        "element": "typing.Sequence[CompanyLocation]"
+        "element": "list[CompanyLocation]"
       },
       "name": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "tagline": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "universal_name_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile_pic_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "background_cover_image_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "search_id": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "similar_companies": {
         "kind": "typing",
-        "element": "typing.Sequence[SimilarCompany]"
+        "element": "list[SimilarCompany]"
       },
       "affiliated_companies": {
         "kind": "typing",
-        "element": "typing.Union[typing.Sequence[AffiliatedCompany], UnknownType]"
+        "element": "Union[list[AffiliatedCompany], UnknownType]"
       },
       "updates": {
         "kind": "typing",
-        "element": "typing.Sequence[CompanyUpdate]"
+        "element": "list[CompanyUpdate]"
       },
       "follower_count": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "social_networking_services": {
         "kind": "typing",
-        "element": "typing.Union[list[CompanySocialNetworkingService], UnknownType]"
+        "element": "Union[list[CompanySocialNetworkingService], UnknownType]"
       },
       "acquisitions": {
         "kind": "typing",
-        "element": "typing.Optional[Acquisition]"
+        "element": "Optional[Acquisition]"
       },
       "exit_data": {
         "kind": "typing",
-        "element": "typing.Optional[typing.Sequence[Exit]]"
+        "element": "Optional[list[Exit]]"
       },
       "extra": {
         "kind": "typing",
-        "element": "typing.Optional[CompanyDetails]"
+        "element": "Optional[CompanyDetails]"
       },
       "funding_data": {
         "kind": "typing",
-        "element": "typing.Optional[typing.Sequence[Funding]]"
+        "element": "Optional[list[Funding]]"
       },
       "categories": {
         "kind": "typing",
-        "element": "typing.Optional[typing.Sequence[str]]"
+        "element": "Optional[list[str]]"
       }
     },
     "RoleSearchErichedResult": {
       "linkedin_profile_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile": {
         "kind": "record",
@@ -2139,23 +2139,23 @@
       },
       "profile": {
         "kind": "typing",
-        "element": "typing.Optional[Person]"
+        "element": "Optional[Person]"
       }
     },
     "StudentList": {
       "students": {
         "kind": "typing",
-        "element": "typing.List[Student]"
+        "element": "List[Student]"
       },
       "next_page": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "CompanyUrlEnrichResult": {
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile": {
         "kind": "record",
@@ -2165,7 +2165,7 @@
     "PersonLookupUrlEnrichResult": {
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile": {
         "kind": "record",
@@ -2179,25 +2179,25 @@
       },
       "next_page_no": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "next_page_api_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "previous_page_no": {
         "kind": "typing",
-        "element": "typing.Optional[int]"
+        "element": "Optional[int]"
       },
       "previous_page_api_url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     },
     "ReverseEmailUrlEnrichResult": {
       "url": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       },
       "profile": {
         "kind": "record",
@@ -2211,17 +2211,17 @@
       },
       "profile": {
         "kind": "typing",
-        "element": "typing.Optional[Person]"
+        "element": "Optional[Person]"
       }
     },
     "EmployeeList": {
       "employees": {
         "kind": "typing",
-        "element": "typing.List[Employee]"
+        "element": "List[Employee]"
       },
       "next_page": {
         "kind": "typing",
-        "element": "typing.Optional[str]"
+        "element": "Optional[str]"
       }
     }
   },
