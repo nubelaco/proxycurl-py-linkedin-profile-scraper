@@ -3,7 +3,7 @@
     "/proxycurl/api/v2/linkedin/company/job/count": {
       "method": "GET",
       "title": "Jobs Listing Count Endpoint",
-      "docstring": "Count number of jobs posted by a company on LinkedIn",
+      "docstring": "Cost: 2 credits / successful request.\nCount number of jobs posted by a company on LinkedIn",
       "result_class": "JobListCount",
       "url_params": {
         "job_type": {
@@ -46,7 +46,7 @@
     "/proxycurl/api/linkedin/company/employees/count": {
       "method": "GET",
       "title": "Employee Count Endpoint",
-      "docstring": "\n\nGet a number of total employees of a Company.\n\nGet an employee count of this company from various sources.\n\n",
+      "docstring": "Cost: 1 credit / successful request.\nGet a number of total employees of a Company.\n\nGet an employee count of this company from various sources.",
       "result_class": "EmployeeCount",
       "url_params": {
         "use_cache": {
@@ -74,7 +74,7 @@
     "/proxycurl/api/linkedin/company/employee/search/": {
       "method": "GET",
       "title": "Employee Search Endpoint",
-      "docstring": "\nSearch employees of a target by their job title.\nThis API endpoint is syntactic sugar for the role_search parameter under the [Employee Listing Endpoint](https://nubela.co/proxycurl/docs#company-api-employee-listing-endpoint).\n\nResults are limited by data that we have within [LinkDB](https://nubela.co/proxycurl/linkdb).\nUse [Role Lookup API Endpoint](https://nubela.co/proxycurl/docs#people-api-role-lookup-endpoint) if you need to query for profiles without LinkDB constraints.\nThe drawbacks of the Role Lookup API Endpoint is that it is less precise and can return at most one result per query.\n",
+      "docstring": "Cost: 10 credits / successful request.\nSearch employees of a target by their job title.\nThis API endpoint is syntactic sugar for the role_search parameter under the [Employee Listing Endpoint](https://nubela.co/proxycurl/docs#company-api-employee-listing-endpoint).\n\nResults are limited by data that we have within [LinkDB](https://nubela.co/proxycurl/linkdb).\nUse [Role Lookup API Endpoint](https://nubela.co/proxycurl/docs#people-api-role-lookup-endpoint) if you need to query for profiles without LinkDB constraints.\nThe drawbacks of the Role Lookup API Endpoint is that it is less precise and can return at most one result per query.",
       "result_class": "EmployeeList",
       "url_params": {
         "page_size": {
@@ -112,7 +112,7 @@
     "/proxycurl/api/linkedin/profile/resolve/email": {
       "method": "GET",
       "title": "Reverse Work Email Lookup Endpoint",
-      "docstring": "Resolve LinkedIn Profile from a work email address",
+      "docstring": "Cost: 3 credits / successful request.\nResolve LinkedIn Profile from a work email address",
       "result_class": "ReverseEmailUrlEnrichResult",
       "url_params": {
         "enrich_profile": {
@@ -130,7 +130,7 @@
     "/proxycurl/api/v2/linkedin/company/job": {
       "method": "GET",
       "title": "Jobs Listing Endpoint",
-      "docstring": "List jobs posted by a company on LinkedIn",
+      "docstring": "Cost: 2 credits / successful request.\nList jobs posted by a company on LinkedIn",
       "result_class": "JobListPage",
       "url_params": {
         "job_type": {
@@ -173,7 +173,7 @@
     "/proxycurl/api/linkedin/company/profile-picture": {
       "method": "GET",
       "title": "Company Profile Picture Endpoint",
-      "docstring": "\nGet the profile picture of a company.\n\nProfile pictures are served from cached company profiles found within [LinkDB](https://nubela.co/proxycurl/linkdb).\nIf the profile does not exist within [LinkDB](https://nubela.co/proxycurl/linkdb), then the API will return a `404` status code.\n",
+      "docstring": "Cost: 0 credit / successful request.\nGet the profile picture of a company.\n\nProfile pictures are served from cached company profiles found within [LinkDB](https://nubela.co/proxycurl/linkdb).\nIf the profile does not exist within [LinkDB](https://nubela.co/proxycurl/linkdb), then the API will return a `404` status code.",
       "result_class": "ProfilePicture",
       "url_params": {
         "linkedin_company_profile_url": {
@@ -186,7 +186,7 @@
     "/proxycurl/api/linkedin/company/employees/": {
       "method": "GET",
       "title": "Employee Listing Endpoint",
-      "docstring": "\nGet a list of employees of a Company.\n\nThis API endpoint is limited by LinkDB which is populated with profiles in the US, UK, Canada, Israel, Australia, Ireland, New Zealand and Singapore.\nAs such, this endpoint is best used to list employees working in companies based in those locations only.\n",
+      "docstring": "Cost: 3 credits / employee returned.\nGet a list of employees of a Company.\n\nThis API endpoint is limited by LinkDB which is populated with profiles in the US, UK, Canada, Israel, Australia, Ireland, New Zealand and Singapore.\nAs such, this endpoint is best used to list employees working in companies based in those locations only.",
       "result_class": "EmployeeList",
       "url_params": {
         "country": {
@@ -229,7 +229,7 @@
     "/proxycurl/api/linkedin/profile/resolve": {
       "method": "GET",
       "title": "Person Lookup Endpoint",
-      "docstring": "Look up a person with a name and company information.",
+      "docstring": "Cost: 2 credits / successful request.\nLook up a person with a name and company information.",
       "result_class": "PersonLookupUrlEnrichResult",
       "url_params": {
         "enrich_profile": {
@@ -267,7 +267,7 @@
     "/proxycurl/api/linkedin/company/resolve": {
       "method": "GET",
       "title": "Company Lookup Endpoint",
-      "docstring": "Resolve Company LinkedIn Profile from company name,\n    domain name and location.",
+      "docstring": "Cost: 2 credits / successful request.\nResolve Company LinkedIn Profile from company name,\n    domain name and location.",
       "result_class": "CompanyUrlEnrichResult",
       "url_params": {
         "company_location": {
@@ -276,13 +276,13 @@
           "example": "sg"
         },
         "company_domain": {
-          "required": "Requires either `company_domain` or `company_name`",
-          "description": "Company website or Company domain",
+          "required": false,
+          "description": "Company website or Company domain\nRequires either `company_domain` or `company_name`",
           "example": "accenture.com"
         },
         "company_name": {
-          "required": "Requires either `company_domain` or `company_name`",
-          "description": "Company Name",
+          "required": false,
+          "description": "Company Name\nRequires either `company_domain` or `company_name`",
           "example": "Accenture"
         }
       }
@@ -290,7 +290,7 @@
     "/proxycurl/api/linkedin/profile/email": {
       "method": "GET",
       "title": "Work Email Lookup Endpoint",
-      "docstring": "\nLookup work email address of a LinkedIn Person Profile.\n\nEmail addresses returned are verified to not be role-based or catch-all emails. Email addresses\nreturned by our API endpoint come with a 95+% deliverability guarantee\n\n**Endpoint behavior**\n\n*This endpoint* **_may not_** *return results immediately.*\n\nIf you provided a webhook in your request parameter, our application will call your webhook with\nthe result once. See `Webhook request` below.\n",
+      "docstring": "Cost: 3 credits / request.\nLookup work email address of a LinkedIn Person Profile.\n\nEmail addresses returned are verified to not be role-based or catch-all emails. Email addresses\nreturned by our API endpoint come with a 95+% deliverability guarantee\n\n**Endpoint behavior**\n\n*This endpoint* **_may not_** *return results immediately.*\n\nIf you provided a webhook in your request parameter, our application will call your webhook with\nthe result once. See `Webhook request` below.",
       "result_class": "ExtractionEmailResult",
       "url_params": {
         "linkedin_profile_url": {
@@ -308,7 +308,7 @@
     "/proxycurl/api/linkedin/person/profile-picture": {
       "method": "GET",
       "title": "Person Profile Picture Endpoint",
-      "docstring": "\nGet the profile picture of a person.\n\nProfile pictures are served from cached people profiles found within [LinkDB](https://nubela.co/proxycurl/linkdb).\nIf the profile does not exist within [LinkDB](https://nubela.co/proxycurl/linkdb), then the API will return a `404` status code.\n",
+      "docstring": "Cost: 0 credit / successful request.\nGet the profile picture of a person.\n\nProfile pictures are served from cached people profiles found within [LinkDB](https://nubela.co/proxycurl/linkdb).\nIf the profile does not exist within [LinkDB](https://nubela.co/proxycurl/linkdb), then the API will return a `404` status code.",
       "result_class": "ProfilePicture",
       "url_params": {
         "linkedin_person_profile_url": {
@@ -321,7 +321,7 @@
     "/proxycurl/api/linkedin/school/students/": {
       "method": "GET",
       "title": "Student Listing Endpoint",
-      "docstring": "\nGet a list of students of a school or university.\n",
+      "docstring": "Cost: 3 credits / student returned.\nGet a list of students of a school or university.",
       "result_class": "StudentList",
       "url_params": {
         "country": {
@@ -364,7 +364,7 @@
     "/proxycurl/api/find/company/role/": {
       "method": "GET",
       "title": "Role Lookup Endpoint",
-      "docstring": "\nFinds the closest (person) profile with a given role in a Company.\nFor example, you can use this endpoint to find the \"CTO\" of \"Apple\".\nThis API endpoint returns only one result that is the closest match.\n\nThere is also the [Employee Search Endpoint]\n(https://nubela.co/proxycurl/docs#company-api-employee-search-api-endpoint)\n which is powered by [LinkDB](https://nubela.co/proxycurl/linkdb) if you\n require:\n\n* precision on the target company\n* a list of employees that matches a role (instead of one result).\n",
+      "docstring": "Cost: 3 credits / successful request.\nFinds the closest (person) profile with a given role in a Company.\nFor example, you can use this endpoint to find the \"CTO\" of \"Apple\".\nThis API endpoint returns only one result that is the closest match.\n\nThere is also the [Employee Search Endpoint]\n(https://nubela.co/proxycurl/docs#company-api-employee-search-api-endpoint)\n which is powered by [LinkDB](https://nubela.co/proxycurl/linkdb) if you\n require:\n\n* precision on the target company\n* a list of employees that matches a role (instead of one result).",
       "result_class": "RoleSearchErichedResult",
       "url_params": {
         "enrich_profile": {
@@ -387,7 +387,7 @@
     "/proxycurl/api/contact-api/personal-contact": {
       "method": "GET",
       "title": "Personal Contact Number Lookup Endpoint",
-      "docstring": "Given an LinkedIn profile, returns a list of personal contact numbers belonging to this identity.",
+      "docstring": "Cost: 1 credit / contact number returned.\nGiven an LinkedIn profile, returns a list of personal contact numbers belonging to this identity.",
       "result_class": "PDLPhoneNumberResult",
       "url_params": {
         "linkedin_profile_url": {
@@ -400,7 +400,7 @@
     "/proxycurl/api/contact-api/personal-email": {
       "method": "GET",
       "title": "Personal Email Lookup Endpoint",
-      "docstring": "Given an LinkedIn profile, returns a list of personal emails belonging to this identity. Emails are verified to be deliverable.",
+      "docstring": "Cost: 1 credit / email returned.\nGiven an LinkedIn profile, returns a list of personal emails belonging to this identity. Emails are verified to be deliverable.",
       "result_class": "PDLEmailResult",
       "url_params": {
         "email_validation": {
@@ -418,7 +418,7 @@
     "/proxycurl/api/linkedin/company": {
       "method": "GET",
       "title": "Company Profile Endpoint",
-      "docstring": "\nGet structured data of a Company Profile\n",
+      "docstring": "Cost: 1 credit / successful request.\nGet structured data of a Company Profile",
       "result_class": "LinkedinCompany",
       "url_params": {
         "resolve_numeric_id": {
@@ -466,7 +466,7 @@
     "/proxycurl/api/linkedin/school": {
       "method": "GET",
       "title": "School Profile Endpoint",
-      "docstring": "\nGet structured data of a LinkedIn School Profile\n",
+      "docstring": "Cost: 1 credit / successful request.\nGet structured data of a LinkedIn School Profile",
       "result_class": "LinkedinSchool",
       "url_params": {
         "url": {
@@ -484,7 +484,7 @@
     "/proxycurl/api/linkedin/job": {
       "method": "GET",
       "title": "Job Profile Endpoint",
-      "docstring": "Get structured data of a LinkedIn Job Profile",
+      "docstring": "Cost: 2 credits / successful request.\nGet structured data of a LinkedIn Job Profile",
       "result_class": "JobProfile",
       "url_params": {
         "url": {
@@ -497,7 +497,7 @@
     "/proxycurl/api/reveal/company": {
       "method": "GET",
       "title": "Reveal Endpoint",
-      "docstring": "Deanonymize an IPv4 address and associate the Company behind the IPv4 address.",
+      "docstring": "Cost: 2 credits / successful request.\nDeanonymize an IPv4 address and associate the Company behind the IPv4 address.",
       "result_class": "CompanyReveal",
       "url_params": {
         "role_contact_number": {
@@ -525,7 +525,7 @@
     "/proxycurl/api/v2/linkedin": {
       "method": "GET",
       "title": "Person Profile Endpoint",
-      "docstring": "\nGet structured data of a Personal Profile\n",
+      "docstring": "Cost: 1 credit / successful request.\nGet structured data of a Personal Profile",
       "result_class": "PersonEndpointResponse",
       "url_params": {
         "url": {
@@ -588,7 +588,7 @@
     "/proxycurl/api/disposable-email": {
       "method": "GET",
       "title": "Disposable Email Address Check Endpoint",
-      "docstring": "Given an email address, checks if the email address belongs to a disposable email service.",
+      "docstring": "Cost: 0 credit / request.\nGiven an email address, checks if the email address belongs to a disposable email service.",
       "result_class": "DisposableEmail",
       "url_params": {
         "email": {
@@ -601,1640 +601,2025 @@
     "/proxycurl/api/credit-balance": {
       "method": "GET",
       "title": "View Credit Balance Endpoint",
-      "docstring": "Get your current credit(s) balance",
-      "result_class": "CreditBalance"
+      "docstring": "Cost: 0 credit / successful request.\nGet your current credit(s) balance",
+      "result_class": "CreditBalance",
+      "url_params": {}
     }
   },
   "classes": {
     "JobListCount": {
       "count": {
-        "kind": "basic",
-        "name": "int"
+        "type": "basic",
+        "value": "int",
+        "nullable": false
       }
     },
     "EmployeeCount": {
       "total_employee": {
-        "kind": "basic",
-        "name": "int"
+        "type": "basic",
+        "value": "int",
+        "nullable": false
       },
       "linkedin_employee_count": {
-        "kind": "typing",
-        "element": "Optional[int]"
+        "type": "basic",
+        "value": "int",
+        "nullable": true
       },
       "linkdb_employee_count": {
-        "kind": "basic",
-        "name": "int"
+        "type": "basic",
+        "value": "int",
+        "nullable": false
       },
       "regression_notice": {
-        "kind": "basic",
-        "name": "str"
-      }
-    },
-    "JobListEntry": {
-      "company": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "company_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "job_title": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "job_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "list_date": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "location": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "ProfilePicture": {
-      "tmp_profile_pic_url": {
-        "kind": "basic",
-        "name": "str"
-      }
-    },
-    "ExtractionEmailResult": {
-      "email_queue_count": {
-        "kind": "basic",
-        "name": "int"
-      }
-    },
-    "PDLPhoneNumberResult": {
-      "numbers": {
-        "kind": "typing",
-        "element": "List[str]"
-      }
-    },
-    "PDLEmailResult": {
-      "emails": {
-        "kind": "typing",
-        "element": "List[str]"
-      },
-      "invalid_emails": {
-        "kind": "typing",
-        "element": "List[str]"
-      }
-    },
-    "Investor": {
-      "linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "type": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "Exit": {
-      "linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "crunchbase_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "JobCompany": {
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "logo": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "JobLocation": {
-      "country": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "region": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "city": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "postal_code": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "latitude": {
-        "kind": "typing",
-        "element": "Optional[float]"
-      },
-      "longitude": {
-        "kind": "typing",
-        "element": "Optional[float]"
-      },
-      "street": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "CompanySocialNetworkingService": {
-      "service": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "canonical_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "internal_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "AffiliatedCompany": {
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "link": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "industry": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "location": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "SimilarCompany": {
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "link": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "industry": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "location": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "CompanyLocation": {
-      "country": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "city": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "postal_code": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "line_1": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "is_hq": {
-        "kind": "basic",
-        "name": "bool"
-      },
-      "state": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "PersonExtra": {
-      "github_profile_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "facebook_profile_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "twitter_profile_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "InferredSalary": {
-      "min": {
-        "kind": "typing",
-        "element": "Optional[float]"
-      },
-      "max": {
-        "kind": "typing",
-        "element": "Optional[float]"
-      }
-    },
-    "PersonSocialNetworkingService": {
-      "service": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "canonical_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "internal_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "PersonGroup": {
-      "profile_pic_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "SimilarProfile": {
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "link": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "summary": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "location": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "Activity": {
-      "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "link": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "activity_status": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "PeopleAlsoViewed": {
-      "link": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "summary": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "location": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "Course": {
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "number": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": false
       }
     },
     "Date": {
       "day": {
-        "kind": "typing",
-        "element": "Optional[int]"
+        "type": "basic",
+        "value": "int",
+        "nullable": true
       },
       "month": {
-        "kind": "typing",
-        "element": "Optional[int]"
+        "type": "basic",
+        "value": "int",
+        "nullable": true
       },
       "year": {
-        "kind": "basic",
-        "name": "int"
-      }
-    },
-    "DisposableEmail": {
-      "is_disposable_email": {
-        "kind": "basic",
-        "name": "bool"
-      },
-      "is_free_email": {
-        "kind": "basic",
-        "name": "bool"
-      }
-    },
-    "CreditBalance": {
-      "credit_balance": {
-        "kind": "basic",
-        "name": "int"
+        "type": "basic",
+        "value": "int",
+        "nullable": false
       }
     },
     "Experience": {
       "starts_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "ends_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "company": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "company_linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "location": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "logo_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "Education": {
       "starts_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "ends_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "field_of_study": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "degree_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "school": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "school_linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "logo_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "grade": {
-        "kind": "typing",
-        "element": "Union[str, NoneType, UnknownType]"
+        "type": "basic",
+        "value": "str",
+        "nullable": false
       },
       "activities_and_societies": {
-        "kind": "typing",
-        "element": "Union[str, NoneType, UnknownType]"
+        "type": "basic",
+        "value": "str",
+        "nullable": false
       }
     },
     "AccomplishmentOrg": {
       "starts_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "ends_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "org_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "Publication": {
       "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "publisher": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "published_on": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "HonourAward": {
       "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "issuer": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "issued_on": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "Patent": {
       "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "issuer": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "issued_on": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "application_number": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "patent_number": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "Course": {
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "number": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "Project": {
       "starts_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "ends_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "TestScore": {
       "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "score": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "date_on": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "VolunteeringExperience": {
       "starts_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "ends_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "cause": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "company": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "company_linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "logo_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "Certification": {
       "starts_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "ends_at": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "license_number": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "display_source": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "authority": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "PeopleAlsoViewed": {
+      "link": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "summary": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "location": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "Activity": {
+      "title": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "link": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "activity_status": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "SimilarProfile": {
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "link": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "summary": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "location": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "Article": {
       "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "link": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "published_date": {
-        "kind": "typing",
-        "element": "Optional[Date]"
+        "type": "object",
+        "value": "Date",
+        "nullable": true
       },
       "author": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "image_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
-    "PersonEndpointResponse": {
-      "public_identifier": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
+    "PersonGroup": {
       "profile_pic_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "background_cover_image_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "first_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "last_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "full_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "follower_count": {
-        "kind": "typing",
-        "element": "Union[int, NoneType, UnknownType]"
-      },
-      "occupation": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "headline": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "summary": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "country": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "country_full_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "city": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "state": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "experiences": {
-        "kind": "typing",
-        "element": "list[Experience]"
-      },
-      "education": {
-        "kind": "typing",
-        "element": "list[Education]"
-      },
-      "languages": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "accomplishment_organisations": {
-        "kind": "typing",
-        "element": "list[AccomplishmentOrg]"
-      },
-      "accomplishment_publications": {
-        "kind": "typing",
-        "element": "list[Publication]"
-      },
-      "accomplishment_honors_awards": {
-        "kind": "typing",
-        "element": "list[HonourAward]"
-      },
-      "accomplishment_patents": {
-        "kind": "typing",
-        "element": "list[Patent]"
-      },
-      "accomplishment_courses": {
-        "kind": "typing",
-        "element": "list[Course]"
-      },
-      "accomplishment_projects": {
-        "kind": "typing",
-        "element": "list[Project]"
-      },
-      "accomplishment_test_scores": {
-        "kind": "typing",
-        "element": "list[TestScore]"
-      },
-      "volunteer_work": {
-        "kind": "typing",
-        "element": "list[VolunteeringExperience]"
-      },
-      "certifications": {
-        "kind": "typing",
-        "element": "list[Certification]"
-      },
-      "connections": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "people_also_viewed": {
-        "kind": "typing",
-        "element": "list[PeopleAlsoViewed]"
-      },
-      "recommendations": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "activities": {
-        "kind": "typing",
-        "element": "list[Activity]"
-      },
-      "similarly_named_profiles": {
-        "kind": "typing",
-        "element": "list[SimilarProfile]"
-      },
-      "articles": {
-        "kind": "typing",
-        "element": "list[Article]"
-      },
-      "groups": {
-        "kind": "typing",
-        "element": "list[PersonGroup]"
-      },
-      "phone_numbers": {
-        "kind": "typing",
-        "element": "Union[list[str], UnknownType]"
-      },
-      "social_networking_services": {
-        "kind": "typing",
-        "element": "Union[list[PersonSocialNetworkingService], UnknownType]"
-      },
-      "skills": {
-        "kind": "typing",
-        "element": "Union[list[str], UnknownType]"
-      },
-      "inferred_salary": {
-        "kind": "typing",
-        "element": "Optional[InferredSalary]"
-      },
-      "gender": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "birth_date": {
-        "kind": "typing",
-        "element": "Optional[Date]"
-      },
-      "industry": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "extra": {
-        "kind": "typing",
-        "element": "Optional[PersonExtra]"
-      },
-      "interests": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "personal_emails": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "personal_numbers": {
-        "kind": "typing",
-        "element": "list[str]"
-      }
-    },
-    "CompanyUpdate": {
-      "article_link": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "image": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "posted_on": {
-        "kind": "typing",
-        "element": "Optional[Date]"
-      },
-      "text": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "total_likes": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      }
-    },
-    "OrganizationBase": {
-      "linkedin_internal_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "website": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "industry": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "company_size": {
-        "kind": "typing",
-        "element": "Tuple[Optional[int], Optional[int]]"
-      },
-      "company_size_on_linkedin": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "hq": {
-        "kind": "typing",
-        "element": "Optional[CompanyLocation]"
-      },
-      "company_type": {
-        "kind": "typing",
-        "element": "Optional[CompanyType]"
-      },
-      "founded_year": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "specialities": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "locations": {
-        "kind": "typing",
-        "element": "list[CompanyLocation]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
-      "tagline": {
-        "kind": "typing",
-        "element": "Optional[str]"
+      "url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "PersonSocialNetworkingService": {
+      "service": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
-      "universal_name_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
+      "canonical_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
-      "profile_pic_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "background_cover_image_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "search_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "similar_companies": {
-        "kind": "typing",
-        "element": "list[SimilarCompany]"
-      },
-      "affiliated_companies": {
-        "kind": "typing",
-        "element": "Union[list[AffiliatedCompany], UnknownType]"
-      },
-      "updates": {
-        "kind": "typing",
-        "element": "list[CompanyUpdate]"
-      },
-      "follower_count": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "social_networking_services": {
-        "kind": "typing",
-        "element": "Union[list[CompanySocialNetworkingService], UnknownType]"
+      "internal_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       }
     },
     "Person": {
       "public_identifier": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "profile_pic_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "background_cover_image_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "first_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "last_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "full_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "follower_count": {
-        "kind": "typing",
-        "element": "Union[int, NoneType, UnknownType]"
+        "type": "basic",
+        "value": "int",
+        "nullable": false
       },
       "occupation": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "headline": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "summary": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "country": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "country_full_name": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "city": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "state": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
       },
       "experiences": {
-        "kind": "typing",
-        "element": "list[Experience]"
+        "type": "object",
+        "value": "Experience",
+        "nullable": false
       },
       "education": {
-        "kind": "typing",
-        "element": "list[Education]"
+        "type": "object",
+        "value": "Education",
+        "nullable": false
       },
       "languages": {
-        "kind": "typing",
-        "element": "list[str]"
+        "type": "list",
+        "value": "str",
+        "nullable": false
       },
       "accomplishment_organisations": {
-        "kind": "typing",
-        "element": "list[AccomplishmentOrg]"
+        "type": "object",
+        "value": "AccomplishmentOrg",
+        "nullable": false
       },
       "accomplishment_publications": {
-        "kind": "typing",
-        "element": "list[Publication]"
+        "type": "object",
+        "value": "Publication",
+        "nullable": false
       },
       "accomplishment_honors_awards": {
-        "kind": "typing",
-        "element": "list[HonourAward]"
+        "type": "object",
+        "value": "HonourAward",
+        "nullable": false
       },
       "accomplishment_patents": {
-        "kind": "typing",
-        "element": "list[Patent]"
+        "type": "object",
+        "value": "Patent",
+        "nullable": false
       },
       "accomplishment_courses": {
-        "kind": "typing",
-        "element": "list[Course]"
+        "type": "object",
+        "value": "Course",
+        "nullable": false
       },
       "accomplishment_projects": {
-        "kind": "typing",
-        "element": "list[Project]"
+        "type": "object",
+        "value": "Project",
+        "nullable": false
       },
       "accomplishment_test_scores": {
-        "kind": "typing",
-        "element": "list[TestScore]"
+        "type": "object",
+        "value": "TestScore",
+        "nullable": false
       },
       "volunteer_work": {
-        "kind": "typing",
-        "element": "list[VolunteeringExperience]"
+        "type": "object",
+        "value": "VolunteeringExperience",
+        "nullable": false
       },
       "certifications": {
-        "kind": "typing",
-        "element": "list[Certification]"
+        "type": "object",
+        "value": "Certification",
+        "nullable": false
       },
       "connections": {
-        "kind": "typing",
-        "element": "Optional[int]"
+        "type": "basic",
+        "value": "int",
+        "nullable": true
       },
       "people_also_viewed": {
-        "kind": "typing",
-        "element": "list[PeopleAlsoViewed]"
+        "type": "object",
+        "value": "PeopleAlsoViewed",
+        "nullable": false
       },
       "recommendations": {
-        "kind": "typing",
-        "element": "list[str]"
+        "type": "list",
+        "value": "str",
+        "nullable": false
       },
       "activities": {
-        "kind": "typing",
-        "element": "list[Activity]"
+        "type": "object",
+        "value": "Activity",
+        "nullable": false
       },
       "similarly_named_profiles": {
-        "kind": "typing",
-        "element": "list[SimilarProfile]"
+        "type": "object",
+        "value": "SimilarProfile",
+        "nullable": false
       },
       "articles": {
-        "kind": "typing",
-        "element": "list[Article]"
+        "type": "object",
+        "value": "Article",
+        "nullable": false
       },
       "groups": {
-        "kind": "typing",
-        "element": "list[PersonGroup]"
+        "type": "object",
+        "value": "PersonGroup",
+        "nullable": false
       },
       "phone_numbers": {
-        "kind": "typing",
-        "element": "Union[list[str], UnknownType]"
+        "type": "list",
+        "value": "str",
+        "nullable": false
       },
       "social_networking_services": {
-        "kind": "typing",
-        "element": "Union[list[PersonSocialNetworkingService], UnknownType]"
+        "type": "object",
+        "value": "PersonSocialNetworkingService",
+        "nullable": false
       },
       "skills": {
-        "kind": "typing",
-        "element": "Union[list[str], UnknownType]"
-      }
-    },
-    "CompanyReveal": {
-      "company": {
-        "kind": "typing",
-        "element": "Optional[OrganizationBase]"
-      },
-      "company_linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "role_contact_number": {
-        "kind": "typing",
-        "element": "Optional[List[str]]"
-      },
-      "role_personal_email": {
-        "kind": "typing",
-        "element": "Optional[List[str]]"
-      },
-      "role_profile": {
-        "kind": "typing",
-        "element": "Optional[Person]"
-      }
-    },
-    "JobProfile": {
-      "linkedin_internal_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "job_description": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "apply_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "title": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "location": {
-        "kind": "record",
-        "name": "JobLocation"
-      },
-      "company": {
-        "kind": "record",
-        "name": "JobCompany"
-      },
-      "seniority_level": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "industry": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "employment_type": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "job_functions": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "total_applicants": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      }
-    },
-    "LinkedinSchool": {
-      "linkedin_internal_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "website": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "industry": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "company_size": {
-        "kind": "typing",
-        "element": "Tuple[Optional[int], Optional[int]]"
-      },
-      "company_size_on_linkedin": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "hq": {
-        "kind": "typing",
-        "element": "Optional[CompanyLocation]"
-      },
-      "company_type": {
-        "kind": "typing",
-        "element": "Optional[CompanyType]"
-      },
-      "founded_year": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "specialities": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "locations": {
-        "kind": "typing",
-        "element": "list[CompanyLocation]"
-      },
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "tagline": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "universal_name_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "profile_pic_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "background_cover_image_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "search_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "similar_companies": {
-        "kind": "typing",
-        "element": "list[SimilarCompany]"
-      },
-      "affiliated_companies": {
-        "kind": "typing",
-        "element": "Union[list[AffiliatedCompany], UnknownType]"
-      },
-      "updates": {
-        "kind": "typing",
-        "element": "list[CompanyUpdate]"
-      },
-      "follower_count": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "social_networking_services": {
-        "kind": "typing",
-        "element": "Union[list[CompanySocialNetworkingService], UnknownType]"
-      }
-    },
-    "AcquiredCompany": {
-      "linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "crunchbase_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "announced_date": {
-        "kind": "typing",
-        "element": "Optional[Date]"
-      },
-      "price": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      }
-    },
-    "Acquisitor": {
-      "linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "crunchbase_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "announced_date": {
-        "kind": "typing",
-        "element": "Optional[Date]"
-      },
-      "price": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      }
-    },
-    "Acquisition": {
-      "acquired": {
-        "kind": "typing",
-        "element": "list[AcquiredCompany]"
-      },
-      "acquired_by": {
-        "kind": "typing",
-        "element": "Optional[Acquisitor]"
-      }
-    },
-    "CompanyDetails": {
-      "ipo_status": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "crunchbase_rank": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "founding_date": {
-        "kind": "typing",
-        "element": "Optional[Date]"
-      },
-      "operating_status": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "company_type": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "contact_email": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "phone_number": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "facebook_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "twitter_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "number_of_funding_rounds": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "total_funding_amount": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "stock_symbol": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "ipo_date": {
-        "kind": "typing",
-        "element": "Optional[Date]"
-      },
-      "number_of_lead_investors": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "number_of_investors": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "total_fund_raised": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "number_of_investments": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "number_of_lead_investments": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "number_of_exits": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "number_of_acquisitions": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      }
-    },
-    "Funding": {
-      "funding_type": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "money_raised": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "announced_date": {
-        "kind": "typing",
-        "element": "Optional[Date]"
-      },
-      "number_of_investor": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "investor_list": {
-        "kind": "typing",
-        "element": "Optional[list[Investor]]"
-      }
-    },
-    "LinkedinCompany": {
-      "linkedin_internal_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "description": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "website": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "industry": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "company_size": {
-        "kind": "typing",
-        "element": "Tuple[Optional[int], Optional[int]]"
-      },
-      "company_size_on_linkedin": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "hq": {
-        "kind": "typing",
-        "element": "Optional[CompanyLocation]"
-      },
-      "company_type": {
-        "kind": "typing",
-        "element": "Optional[CompanyType]"
-      },
-      "founded_year": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "specialities": {
-        "kind": "typing",
-        "element": "list[str]"
-      },
-      "locations": {
-        "kind": "typing",
-        "element": "list[CompanyLocation]"
-      },
-      "name": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "tagline": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "universal_name_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "profile_pic_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "background_cover_image_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "search_id": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "similar_companies": {
-        "kind": "typing",
-        "element": "list[SimilarCompany]"
-      },
-      "affiliated_companies": {
-        "kind": "typing",
-        "element": "Union[list[AffiliatedCompany], UnknownType]"
-      },
-      "updates": {
-        "kind": "typing",
-        "element": "list[CompanyUpdate]"
-      },
-      "follower_count": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "social_networking_services": {
-        "kind": "typing",
-        "element": "Union[list[CompanySocialNetworkingService], UnknownType]"
-      },
-      "acquisitions": {
-        "kind": "typing",
-        "element": "Optional[Acquisition]"
-      },
-      "exit_data": {
-        "kind": "typing",
-        "element": "Optional[list[Exit]]"
-      },
-      "extra": {
-        "kind": "typing",
-        "element": "Optional[CompanyDetails]"
-      },
-      "funding_data": {
-        "kind": "typing",
-        "element": "Optional[list[Funding]]"
-      },
-      "categories": {
-        "kind": "typing",
-        "element": "Optional[list[str]]"
-      }
-    },
-    "RoleSearchErichedResult": {
-      "linkedin_profile_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "profile": {
-        "kind": "record",
-        "name": "PersonEndpointResponse"
-      }
-    },
-    "Student": {
-      "profile_url": {
-        "kind": "basic",
-        "name": "str"
-      },
-      "profile": {
-        "kind": "typing",
-        "element": "Optional[Person]"
-      }
-    },
-    "StudentList": {
-      "students": {
-        "kind": "typing",
-        "element": "List[Student]"
-      },
-      "next_page": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "CompanyUrlEnrichResult": {
-      "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "profile": {
-        "kind": "record",
-        "name": "LinkedinCompany"
-      }
-    },
-    "PersonLookupUrlEnrichResult": {
-      "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "profile": {
-        "kind": "record",
-        "name": "PersonEndpointResponse"
-      }
-    },
-    "JobListPage": {
-      "job": {
-        "kind": "typing",
-        "element": "list[JobListEntry]"
-      },
-      "next_page_no": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "next_page_api_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "previous_page_no": {
-        "kind": "typing",
-        "element": "Optional[int]"
-      },
-      "previous_page_api_url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      }
-    },
-    "ReverseEmailUrlEnrichResult": {
-      "url": {
-        "kind": "typing",
-        "element": "Optional[str]"
-      },
-      "profile": {
-        "kind": "record",
-        "name": "PersonEndpointResponse"
+        "type": "list",
+        "value": "str",
+        "nullable": false
       }
     },
     "Employee": {
       "profile_url": {
-        "kind": "basic",
-        "name": "str"
+        "type": "basic",
+        "value": "str",
+        "nullable": false
       },
       "profile": {
-        "kind": "typing",
-        "element": "Optional[Person]"
+        "type": "object",
+        "value": "Person",
+        "nullable": true
       }
     },
     "EmployeeList": {
       "employees": {
-        "kind": "typing",
-        "element": "List[Employee]"
+        "type": "object",
+        "value": "Employee",
+        "nullable": false
       },
       "next_page": {
-        "kind": "typing",
-        "element": "Optional[str]"
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "InferredSalary": {
+      "min": {
+        "type": "basic",
+        "value": "float",
+        "nullable": true
+      },
+      "max": {
+        "type": "basic",
+        "value": "float",
+        "nullable": true
+      }
+    },
+    "PersonExtra": {
+      "github_profile_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "facebook_profile_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "twitter_profile_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "PersonEndpointResponse": {
+      "public_identifier": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile_pic_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "background_cover_image_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "first_name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "last_name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "full_name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "follower_count": {
+        "type": "basic",
+        "value": "int",
+        "nullable": false
+      },
+      "occupation": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "headline": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "summary": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "country": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "country_full_name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "city": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "state": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "experiences": {
+        "type": "object",
+        "value": "Experience",
+        "nullable": false
+      },
+      "education": {
+        "type": "object",
+        "value": "Education",
+        "nullable": false
+      },
+      "languages": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "accomplishment_organisations": {
+        "type": "object",
+        "value": "AccomplishmentOrg",
+        "nullable": false
+      },
+      "accomplishment_publications": {
+        "type": "object",
+        "value": "Publication",
+        "nullable": false
+      },
+      "accomplishment_honors_awards": {
+        "type": "object",
+        "value": "HonourAward",
+        "nullable": false
+      },
+      "accomplishment_patents": {
+        "type": "object",
+        "value": "Patent",
+        "nullable": false
+      },
+      "accomplishment_courses": {
+        "type": "object",
+        "value": "Course",
+        "nullable": false
+      },
+      "accomplishment_projects": {
+        "type": "object",
+        "value": "Project",
+        "nullable": false
+      },
+      "accomplishment_test_scores": {
+        "type": "object",
+        "value": "TestScore",
+        "nullable": false
+      },
+      "volunteer_work": {
+        "type": "object",
+        "value": "VolunteeringExperience",
+        "nullable": false
+      },
+      "certifications": {
+        "type": "object",
+        "value": "Certification",
+        "nullable": false
+      },
+      "connections": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "people_also_viewed": {
+        "type": "object",
+        "value": "PeopleAlsoViewed",
+        "nullable": false
+      },
+      "recommendations": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "activities": {
+        "type": "object",
+        "value": "Activity",
+        "nullable": false
+      },
+      "similarly_named_profiles": {
+        "type": "object",
+        "value": "SimilarProfile",
+        "nullable": false
+      },
+      "articles": {
+        "type": "object",
+        "value": "Article",
+        "nullable": false
+      },
+      "groups": {
+        "type": "object",
+        "value": "PersonGroup",
+        "nullable": false
+      },
+      "phone_numbers": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "social_networking_services": {
+        "type": "object",
+        "value": "PersonSocialNetworkingService",
+        "nullable": false
+      },
+      "skills": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "inferred_salary": {
+        "type": "object",
+        "value": "InferredSalary",
+        "nullable": true
+      },
+      "gender": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "birth_date": {
+        "type": "object",
+        "value": "Date",
+        "nullable": true
+      },
+      "industry": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "extra": {
+        "type": "object",
+        "value": "PersonExtra",
+        "nullable": true
+      },
+      "interests": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "personal_emails": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "personal_numbers": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      }
+    },
+    "ReverseEmailUrlEnrichResult": {
+      "url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile": {
+        "type": "object",
+        "value": "PersonEndpointResponse",
+        "nullable": false
+      }
+    },
+    "JobListEntry": {
+      "company": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "company_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "job_title": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "job_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "list_date": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "location": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "JobListPage": {
+      "job": {
+        "type": "object",
+        "value": "JobListEntry",
+        "nullable": false
+      },
+      "next_page_no": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "next_page_api_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "previous_page_no": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "previous_page_api_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "ProfilePicture": {
+      "tmp_profile_pic_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": false
+      }
+    },
+    "PersonLookupUrlEnrichResult": {
+      "url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile": {
+        "type": "object",
+        "value": "PersonEndpointResponse",
+        "nullable": false
+      }
+    },
+    "CompanyLocation": {
+      "country": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "city": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "postal_code": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "line_1": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "is_hq": {
+        "type": "basic",
+        "value": "int",
+        "nullable": false
+      },
+      "state": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "SimilarCompany": {
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "link": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "industry": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "location": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "AffiliatedCompany": {
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "link": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "industry": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "location": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "CompanyUpdate": {
+      "article_link": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "image": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "posted_on": {
+        "type": "object",
+        "value": "Date",
+        "nullable": true
+      },
+      "text": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "total_likes": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      }
+    },
+    "CompanySocialNetworkingService": {
+      "service": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "canonical_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "internal_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "AcquiredCompany": {
+      "linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "crunchbase_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "announced_date": {
+        "type": "object",
+        "value": "Date",
+        "nullable": true
+      },
+      "price": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      }
+    },
+    "Acquisitor": {
+      "linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "crunchbase_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "announced_date": {
+        "type": "object",
+        "value": "Date",
+        "nullable": true
+      },
+      "price": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      }
+    },
+    "Acquisition": {
+      "acquired": {
+        "type": "object",
+        "value": "AcquiredCompany",
+        "nullable": false
+      },
+      "acquired_by": {
+        "type": "object",
+        "value": "Acquisitor",
+        "nullable": true
+      }
+    },
+    "Exit": {
+      "linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "crunchbase_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "CompanyDetails": {
+      "ipo_status": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "crunchbase_rank": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "founding_date": {
+        "type": "object",
+        "value": "Date",
+        "nullable": true
+      },
+      "operating_status": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "company_type": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "contact_email": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "phone_number": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "facebook_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "twitter_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "number_of_funding_rounds": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "total_funding_amount": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "stock_symbol": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "ipo_date": {
+        "type": "object",
+        "value": "Date",
+        "nullable": true
+      },
+      "number_of_lead_investors": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "number_of_investors": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "total_fund_raised": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "number_of_investments": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "number_of_lead_investments": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "number_of_exits": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "number_of_acquisitions": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      }
+    },
+    "Investor": {
+      "linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "type": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "Funding": {
+      "funding_type": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "money_raised": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "announced_date": {
+        "type": "object",
+        "value": "Date",
+        "nullable": true
+      },
+      "number_of_investor": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "investor_list": {
+        "type": "object",
+        "value": "Investor",
+        "nullable": true
+      }
+    },
+    "LinkedinCompany": {
+      "linkedin_internal_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "description": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "website": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "industry": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "company_size": {
+        "type": "tuple",
+        "value": [
+          "int",
+          "int"
+        ],
+        "nullable": false
+      },
+      "company_size_on_linkedin": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "hq": {
+        "type": "object",
+        "value": "CompanyLocation",
+        "nullable": true
+      },
+      "company_type": {
+        "type": "object",
+        "value": "CompanyType",
+        "nullable": true
+      },
+      "founded_year": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "specialities": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "locations": {
+        "type": "object",
+        "value": "CompanyLocation",
+        "nullable": false
+      },
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "tagline": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "universal_name_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile_pic_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "background_cover_image_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "search_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "similar_companies": {
+        "type": "object",
+        "value": "SimilarCompany",
+        "nullable": false
+      },
+      "affiliated_companies": {
+        "type": "object",
+        "value": "AffiliatedCompany",
+        "nullable": false
+      },
+      "updates": {
+        "type": "object",
+        "value": "CompanyUpdate",
+        "nullable": false
+      },
+      "follower_count": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "social_networking_services": {
+        "type": "object",
+        "value": "CompanySocialNetworkingService",
+        "nullable": false
+      },
+      "acquisitions": {
+        "type": "object",
+        "value": "Acquisition",
+        "nullable": true
+      },
+      "exit_data": {
+        "type": "object",
+        "value": "Exit",
+        "nullable": true
+      },
+      "extra": {
+        "type": "object",
+        "value": "CompanyDetails",
+        "nullable": true
+      },
+      "funding_data": {
+        "type": "object",
+        "value": "Funding",
+        "nullable": true
+      },
+      "categories": {
+        "type": "list",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "CompanyUrlEnrichResult": {
+      "url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile": {
+        "type": "object",
+        "value": "LinkedinCompany",
+        "nullable": false
+      }
+    },
+    "ExtractionEmailResult": {
+      "email_queue_count": {
+        "type": "basic",
+        "value": "int",
+        "nullable": false
+      }
+    },
+    "Student": {
+      "profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": false
+      },
+      "profile": {
+        "type": "object",
+        "value": "Person",
+        "nullable": true
+      }
+    },
+    "StudentList": {
+      "students": {
+        "type": "object",
+        "value": "Student",
+        "nullable": false
+      },
+      "next_page": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "RoleSearchErichedResult": {
+      "linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile": {
+        "type": "object",
+        "value": "PersonEndpointResponse",
+        "nullable": false
+      }
+    },
+    "PDLPhoneNumberResult": {
+      "numbers": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      }
+    },
+    "PDLEmailResult": {
+      "emails": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "invalid_emails": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      }
+    },
+    "LinkedinSchool": {
+      "linkedin_internal_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "description": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "website": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "industry": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "company_size": {
+        "type": "tuple",
+        "value": [
+          "int",
+          "int"
+        ],
+        "nullable": false
+      },
+      "company_size_on_linkedin": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "hq": {
+        "type": "object",
+        "value": "CompanyLocation",
+        "nullable": true
+      },
+      "company_type": {
+        "type": "object",
+        "value": "CompanyType",
+        "nullable": true
+      },
+      "founded_year": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "specialities": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "locations": {
+        "type": "object",
+        "value": "CompanyLocation",
+        "nullable": false
+      },
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "tagline": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "universal_name_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile_pic_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "background_cover_image_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "search_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "similar_companies": {
+        "type": "object",
+        "value": "SimilarCompany",
+        "nullable": false
+      },
+      "affiliated_companies": {
+        "type": "object",
+        "value": "AffiliatedCompany",
+        "nullable": false
+      },
+      "updates": {
+        "type": "object",
+        "value": "CompanyUpdate",
+        "nullable": false
+      },
+      "follower_count": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "social_networking_services": {
+        "type": "object",
+        "value": "CompanySocialNetworkingService",
+        "nullable": false
+      }
+    },
+    "JobLocation": {
+      "country": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "region": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "city": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "postal_code": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "latitude": {
+        "type": "basic",
+        "value": "float",
+        "nullable": true
+      },
+      "longitude": {
+        "type": "basic",
+        "value": "float",
+        "nullable": true
+      },
+      "street": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "JobCompany": {
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "logo": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      }
+    },
+    "JobProfile": {
+      "linkedin_internal_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "job_description": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "apply_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "title": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "location": {
+        "type": "object",
+        "value": "JobLocation",
+        "nullable": false
+      },
+      "company": {
+        "type": "object",
+        "value": "JobCompany",
+        "nullable": false
+      },
+      "seniority_level": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "industry": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "employment_type": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "job_functions": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "total_applicants": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      }
+    },
+    "OrganizationBase": {
+      "linkedin_internal_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "description": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "website": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "industry": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "company_size": {
+        "type": "tuple",
+        "value": [
+          "int",
+          "int"
+        ],
+        "nullable": false
+      },
+      "company_size_on_linkedin": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "hq": {
+        "type": "object",
+        "value": "CompanyLocation",
+        "nullable": true
+      },
+      "company_type": {
+        "type": "object",
+        "value": "CompanyType",
+        "nullable": true
+      },
+      "founded_year": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "specialities": {
+        "type": "list",
+        "value": "str",
+        "nullable": false
+      },
+      "locations": {
+        "type": "object",
+        "value": "CompanyLocation",
+        "nullable": false
+      },
+      "name": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "tagline": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "universal_name_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "profile_pic_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "background_cover_image_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "search_id": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "similar_companies": {
+        "type": "object",
+        "value": "SimilarCompany",
+        "nullable": false
+      },
+      "affiliated_companies": {
+        "type": "object",
+        "value": "AffiliatedCompany",
+        "nullable": false
+      },
+      "updates": {
+        "type": "object",
+        "value": "CompanyUpdate",
+        "nullable": false
+      },
+      "follower_count": {
+        "type": "basic",
+        "value": "int",
+        "nullable": true
+      },
+      "social_networking_services": {
+        "type": "object",
+        "value": "CompanySocialNetworkingService",
+        "nullable": false
+      }
+    },
+    "CompanyReveal": {
+      "company": {
+        "type": "object",
+        "value": "OrganizationBase",
+        "nullable": true
+      },
+      "company_linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": true
+      },
+      "role_contact_number": {
+        "type": "list",
+        "value": "str",
+        "nullable": true
+      },
+      "role_personal_email": {
+        "type": "list",
+        "value": "str",
+        "nullable": true
+      },
+      "role_profile": {
+        "type": "object",
+        "value": "Person",
+        "nullable": true
+      }
+    },
+    "DisposableEmail": {
+      "is_disposable_email": {
+        "type": "basic",
+        "value": "int",
+        "nullable": false
+      },
+      "is_free_email": {
+        "type": "basic",
+        "value": "int",
+        "nullable": false
+      }
+    },
+    "CreditBalance": {
+      "credit_balance": {
+        "type": "basic",
+        "value": "int",
+        "nullable": false
       }
     }
   },
   "enums": {
-    "CompanyType": {
-      "EDUCATIONAL": 1,
-      "GOVERNMENT_AGENCY": 2,
-      "NON_PROFIT": 3,
-      "PARTNERSHIP": 4,
-      "PRIVATELY_HELD": 5,
-      "PUBLIC_COMPANY": 6,
-      "SELF_EMPLOYED": 7,
-      "SELF_OWNED": 8
-    }
+    "CompanyType": [
+      "EDUCATIONAL",
+      "GOVERNMENT_AGENCY",
+      "NON_PROFIT",
+      "PARTNERSHIP",
+      "PRIVATELY_HELD",
+      "PUBLIC_COMPANY",
+      "SELF_EMPLOYED",
+      "SELF_OWNED"
+    ]
   }
 }
