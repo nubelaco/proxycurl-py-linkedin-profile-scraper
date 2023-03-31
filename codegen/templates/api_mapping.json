@@ -284,6 +284,11 @@
           "required": false,
           "description": "Company Name\nRequires either `company_domain` or `company_name`",
           "example": "Accenture"
+        },
+        "enrich_profile": {
+          "required": false,
+          "description": "\n    Enrich the result with a cached profile of the lookup result.\n\n    The valid values are:\n\n    * `skip` (default): do not enrich the results with cached profile data\n    * `enrich`: enriches the result with cached profile data\n\n    Calling this API endpoint with this parameter would add 1 credit.\n\n    If you require [fresh profile data](https://nubela.co/blog/how-fresh-are-profiles-returned-by-proxycurl-api/),\n    please chain this API call with the [Company Profile Endpoint](https://nubela.co/proxycurl/docs#company-api-company-profile-endpoint) with the `use_cache=if-recent` parameter.\n    ",
+          "example": "enrich"
         }
       }
     },
@@ -519,6 +524,99 @@
           "required": true,
           "description": "\n    The target IPv4 address.\n    ",
           "example": "8.8.8.8"
+        }
+      }
+    },
+    "/proxycurl/api/search/person/": {
+      "method": "GET",
+      "title": "Person Search Endpoint",
+      "docstring": "Cost: 35 credits / request.\nSearch for people that meet a set of criteria within our exhaustive dataset of people profiles.\n\nThis API endpoint is powered by [LinkDB](https://nubela.co/proxycurl/linkdb), our exhaustive dataset of people and company profiles.",
+      "result_class": "PersonSearchResult",
+      "url_params": {
+        "enrich_profiles": {
+          "required": false,
+          "description": "\n    Get the full profile data of people returned instead of only their LinkedIn profile URLs.\n\n    Each request respond with a streaming response of profiles.\n\n    The valid values are:\n\n    * `skip` (default): lists employee's profile url\n    * `enrich`: lists full profile of employees\n\n    Calling this API endpoint with this parameter would add `1` credit per result returned.\n    ",
+          "example": "enrich"
+        },
+        "page_size": {
+          "required": false,
+          "description": "\n    Tune the maximum results returned per API call.\n\n    The default value of this parameter is `100`.\n\n    Accepted values for this parameter is an integer ranging from `1` to `100`.\n    ",
+          "example": "100"
+        },
+        "birth_date_before": {
+          "required": false,
+          "description": "\n    Filter people with a birth date *less than* a value given in this parameter.\n\n    The default value of this parameter is `null`.\n    ",
+          "example": "2023-01-01"
+        },
+        "birth_date_after": {
+          "required": false,
+          "description": "\n    Filter people with a birth date *more than* a value given in this parameter.\n\n    The default value of this parameter is `null`.\n    ",
+          "example": "1900-01-01"
+        },
+        "connections_max": {
+          "required": false,
+          "description": "\n    Filter people with a LinkedIn connection count *less than* a value given in this parameter.\n\n    The default value of this parameter is `null`.\n    ",
+          "example": "100000"
+        },
+        "connections_min": {
+          "required": false,
+          "description": "\n    Filter people with a LinkedIn connection count *more than* a value given in this parameter.\n\n    The default value of this parameter is `null`.\n    ",
+          "example": "0"
+        },
+        "state": {
+          "required": false,
+          "description": "\n    Filter people by their states by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "city": {
+          "required": false,
+          "description": "\n    Filter people by their cities by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "country_full_name": {
+          "required": false,
+          "description": "\n    Filter people by their countries (in English words) by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "country": {
+          "required": false,
+          "description": "\n    Filter people by their countries (depicted by a 2-letter country code (ISO 3166-1 alpha-2)) by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "summary": {
+          "required": false,
+          "description": "\n    Filter people by their summaries by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "headline": {
+          "required": false,
+          "description": "\n    Filter people by their headlines by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "occupation": {
+          "required": false,
+          "description": "\n    Filter people by their occupations by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "follower_count_max": {
+          "required": false,
+          "description": "\n    Filter people with a LinkedIn follower count *less than* a value given in this parameter.\n\n    The default value of this parameter is `null`.\n    ",
+          "example": "100000"
+        },
+        "follower_count_min": {
+          "required": false,
+          "description": "\n    Filter people with a LinkedIn follower count *more than* a value given in this parameter.\n\n    The default value of this parameter is `null`.\n    ",
+          "example": "0"
+        },
+        "last_name": {
+          "required": false,
+          "description": "\n    Filter people by their last names by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "first_name": {
+          "required": false,
+          "description": "\n    Filter people by their first names by matching it against a regular expression.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a regular expression (regex).\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
         }
       }
     },
@@ -2587,6 +2685,30 @@
       "role_profile": {
         "type": "object",
         "value": "Person",
+        "nullable": true
+      }
+    },
+    "SearchResult": {
+      "linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": false
+      },
+      "profile": {
+        "type": "object",
+        "value": "Person",
+        "nullable": true
+      }
+    },
+    "PersonSearchResult": {
+      "result": {
+        "type": "object",
+        "value": "SearchResult",
+        "nullable": false
+      },
+      "next_page": {
+        "type": "basic",
+        "value": "str",
         "nullable": true
       }
     },
