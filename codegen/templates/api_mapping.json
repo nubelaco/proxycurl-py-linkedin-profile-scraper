@@ -71,7 +71,7 @@
         }
       }
     },
-    "/proxycurl/api/linkedin/company/employee/search/": {
+    "/proxycurl/api/linkedin/company/employee/search": {
       "method": "GET",
       "title": "Employee Search Endpoint",
       "docstring": "Cost: 10 credits / successful request.\nSearch employees of a target by their job title.\nThis API endpoint is syntactic sugar for the role_search parameter under the [Employee Listing Endpoint](https://nubela.co/proxycurl/docs#company-api-employee-listing-endpoint).\n\nResults are limited by data that we have within [LinkDB](https://nubela.co/proxycurl/linkdb).\nUse [Role Lookup API Endpoint](https://nubela.co/proxycurl/docs#people-api-role-lookup-endpoint) if you need to query for profiles without LinkDB constraints.\nThe drawbacks of the Role Lookup API Endpoint is that it is less precise and can return at most one result per query.",
@@ -183,7 +183,7 @@
         }
       }
     },
-    "/proxycurl/api/linkedin/company/employees/": {
+    "/proxycurl/api/linkedin/company/employees": {
       "method": "GET",
       "title": "Employee Listing Endpoint",
       "docstring": "Cost: 3 credits / employee returned.\nGet a list of employees of a Company.\n\nThis API endpoint is limited by LinkDB which is populated with profiles in the US, UK, Canada, Israel, Australia, Ireland, New Zealand and Singapore.\nAs such, this endpoint is best used to list employees working in companies based in those locations only.",
@@ -323,7 +323,7 @@
         }
       }
     },
-    "/proxycurl/api/linkedin/school/students/": {
+    "/proxycurl/api/linkedin/school/students": {
       "method": "GET",
       "title": "Student Listing Endpoint",
       "docstring": "Cost: 3 credits / student returned.\nGet a list of students of a school or university.",
@@ -366,7 +366,7 @@
         }
       }
     },
-    "/proxycurl/api/find/company/role/": {
+    "/proxycurl/api/find/company/role": {
       "method": "GET",
       "title": "Role Lookup Endpoint",
       "docstring": "Cost: 3 credits / successful request.\nFinds the closest (person) profile with a given role in a Company.\nFor example, you can use this endpoint to find the \"CTO\" of \"Apple\".\nThis API endpoint returns only one result that is the closest match.\n\nThere is also the [Employee Search Endpoint]\n(https://nubela.co/proxycurl/docs#company-api-employee-search-api-endpoint)\n which is powered by [LinkDB](https://nubela.co/proxycurl/linkdb) if you\n require:\n\n* precision on the target company\n* a list of employees that matches a role (instead of one result).",
@@ -527,7 +527,7 @@
         }
       }
     },
-    "/proxycurl/api/search/person/": {
+    "/proxycurl/api/search/person": {
       "method": "GET",
       "title": "Person Search Endpoint",
       "docstring": "Cost: 35 credits / request.\nSearch for people that meet a set of criteria within our exhaustive dataset of people profiles.\n\nThis API endpoint is powered by [LinkDB](https://nubela.co/proxycurl/linkdb), our exhaustive dataset of people and company profiles.",
