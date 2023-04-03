@@ -1790,7 +1790,7 @@
       },
       "is_hq": {
         "type": "basic",
-        "value": "int",
+        "value": "bool",
         "nullable": false
       },
       "state": {
@@ -2715,12 +2715,12 @@
     "DisposableEmail": {
       "is_disposable_email": {
         "type": "basic",
-        "value": "int",
+        "value": "bool",
         "nullable": false
       },
       "is_free_email": {
         "type": "basic",
-        "value": "int",
+        "value": "bool",
         "nullable": false
       }
     },
