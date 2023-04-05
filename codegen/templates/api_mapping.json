@@ -90,7 +90,7 @@
         "keyword_regex": {
           "required": true,
           "description": "\n    Job title keyword to search for in regular expression format.\n    ",
-          "example": "[Cc][Ee][Oo]"
+          "example": "ceo|cto"
         },
         "country": {
           "required": false,
@@ -202,7 +202,7 @@
         "role_search": {
           "required": false,
           "description": "\n    Filter employees by their title by matching the employee's title against a *regular expression*.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a *regular expression* (regex).\n\n    (The base cost of calling this API endpoint with this parameter would be `10` credits.\n    Each employee matched and returned would cost `6` credits per employee returned.)\n    ",
-          "example": "[Ff][Oo][Uu][Nn][Dd][Ee][Rr]"
+          "example": "(co)?-?founder"
         },
         "page_size": {
           "required": false,
@@ -213,6 +213,11 @@
           "required": false,
           "description": "\n    Parameter to tell the API to return past or current employees.\n\n    Valid values are `current`, `past`, and `all`:\n\n    * `current` (default) : lists current employees\n    * `past` : lists past employees\n    * `all` : lists current & past employees\n    ",
           "example": "current"
+        },
+        "sort_by": {
+          "required": false,
+          "description": "\n    Sort employees by recency.\n\n    Valid values are:\n    * `recently-joined` - Sort employees by their join date. The most recent employee is on the top of the list.\n    * `recently-left` - Sort employees by their departure date. The most recent employee who had just left is on the top of this list.\n    * `none` - The default value. Do not sort.\n\n    If this parameter is supplied with a value other than `none`, will add `50` credits to the base cost of the API endpoint regardless number of results returned. It will also add an additional cost of `10` credits per employee returned.\n    ",
+          "example": "recently-joined"
         },
         "resolve_numeric_id": {
           "required": false,
@@ -342,7 +347,7 @@
         "search_keyword": {
           "required": false,
           "description": "\n    Filter students by their major by matching the student's major against a *regular expression*.\n\n    The default value of this parameter is `null`.\n\n    The accepted value is a *regular expression* (regex).\n\n    (The base cost of calling this API endpoint with this parameter would be `10` credits.\n    Each student matched and returned would cost `6` credits per student returned.)\n    ",
-          "example": "(Computer(.*))"
+          "example": "computer*|cs"
         },
         "page_size": {
           "required": false,
@@ -353,6 +358,11 @@
           "required": false,
           "description": "\n    Parameter to tell the API to return past or current students.\n\n    Valid values are `current`, `past`, and `all`:\n\n    * `current` (default) : lists current students\n    * `past` : lists past students\n    * `all` : lists current & past students\n    ",
           "example": "current"
+        },
+        "sort_by": {
+          "required": false,
+          "description": "\n    Sort students by matriculation or graduation dates.\n\n    Valid values are:\n    * `recently-matriculated` - Sort students by their matriculation date. Students who had had most recently started school is on the top of the list.\n    * `recently-graduated` - Sort students by their graduation date. The most recently graduated student is on the top of this list.\n    * `none` - The default value. Do not sort.\n\n    If this parameter is supplied with a value other than `none`, will add `50` credits to the base cost of the API endpoint regardless number of results returned. It will also add an additional cost of `10` credits per student returned.\n    ",
+          "example": "recently-matriculated"
         },
         "resolve_numeric_id": {
           "required": false,
@@ -496,6 +506,89 @@
           "required": true,
           "description": "\n    URL of the LinkedIn Job Profile to target.\n\n    URL should be in the format of\n    `https://www.linkedin.com/jobs/view/<job_id>`.\n    [Jobs Listing Endpoint](#jobs-api-jobs-listing-endpoint)\n    can be used to retrieve a job URL.\n    ",
           "example": "https://www.linkedin.com/jobs/view/3046202003/"
+        }
+      }
+    },
+    "/proxycurl/api/search/company": {
+      "method": "GET",
+      "title": "Company Search Endpoint",
+      "docstring": "Cost: 35 credits / successful request.\nSearch for companies that meet a set of criteria within\n    our exhaustive dataset of company profiles.",
+      "result_class": "CompanySearchResult",
+      "url_params": {
+        "enrich_profiles": {
+          "required": false,
+          "description": "\n    Get the full profile data of people returned\n    instead of only their LinkedIn profile URLs.\n\n    Each request respond with a streaming response of profiles.\n\n    The valid values are:\n\n    * skip (default): lists employee's profile url\n    * enrich: lists full profile of employees\n\n    Calling this API endpoint with this parameter would\n    add 1 credit per result returned.\n    ",
+          "example": "100"
+        },
+        "page_size": {
+          "required": false,
+          "description": "\n    Tune the maximum results returned per API call.\n\n    The default value of this parameter is 100.\n\n    Accepted values for this parameter is an\n    integer ranging from 1 to 100.\n\n    When enrich_profiles=enrich, this parameter accepts\n    value ranging from 1 to 100.\n    ",
+          "example": "100"
+        },
+        "founded_year_before": {
+          "required": false,
+          "description": "\n    Filter companies which is founded before this year.\n    ",
+          "example": "1999"
+        },
+        "founded_year_after": {
+          "required": false,
+          "description": "\n    Filter companies which is founded after this year.\n    ",
+          "example": "1999"
+        },
+        "description": {
+          "required": false,
+          "description": "\n    Filter companies that has a description that matches the input\n    given in this parameter.\n\n    The accepted value for this parameter is a regular expression.\n    The default value of this parameter is null.\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "employee_count_min": {
+          "required": false,
+          "description": "\n    Filter companies with at least this number of employees.\n    ",
+          "example": "1000"
+        },
+        "employee_count_max": {
+          "required": false,
+          "description": "\n    Filter companies with at most this number of employees.\n    ",
+          "example": "1000"
+        },
+        "industry": {
+          "required": false,
+          "description": "\n    Filter companies that belongs to an industry that matches\n    the input given in this parameter.\n\n    The accepted value for this parameter is a regular expression.\n    The default value of this parameter is null.\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "name": {
+          "required": false,
+          "description": "\n    Filter companies with a name that matches the input given in\n    this parameter.\n\n    The accepted value for this parameter is a regular expression.\n    The default value of this parameter is null.\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "follower_count_less_than": {
+          "required": false,
+          "description": "\n    Filter companies with a LinkedIn follower count less than\n    a value given in this parameter.\n    ",
+          "example": "1000"
+        },
+        "follower_count_more_than": {
+          "required": false,
+          "description": "\n    Filter companies with a LinkedIn follower count more than\n    a value given in this parameter.\n    ",
+          "example": "1000"
+        },
+        "type": {
+          "required": false,
+          "description": "\n    Filter companies of the given type.\n\n    Possible values:\n\n    * `EDUCATIONAL`: Educational Institution\n    * `GOVERNMENT_AGENCY`: Government Agency\n    * `NON_PROFIT` : Nonprofit\n    * `PARTNERSHIP` : Partnership\n    * `PRIVATELY_HELD` : Privately Held\n    * `PUBLIC_COMPANY` : Public Company\n    * `SELF_EMPLOYED` : Self-Employed\n    * `SELF_OWNED` : Sole Proprietorship\n    ",
+          "example": "NON_PROFIT"
+        },
+        "city": {
+          "required": false,
+          "description": "\n    Filter companies that is based in this city matched by\n    an input provided by this parameter.\n\n    The accepted value for this parameter is a regular expression.\n    The default value of this parameter is null.\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "region": {
+          "required": false,
+          "description": "\n    Filter companies that is based in this region matched by\n    an input provided by this parameter.\n\n    The accepted value for this parameter is a regular expression.\n    The default value of this parameter is null.\n    ",
+          "example": "[Aa][Ll][Ee][Xx]"
+        },
+        "country": {
+          "required": false,
+          "description": "\n    Filter companies that has an office based in this country.\n\n    This parameter accepts a case-insensitive Alpha-2 ISO3166 country code.\n    ",
+          "example": "us"
         }
       }
     },
@@ -2543,6 +2636,30 @@
       "total_applicants": {
         "type": "basic",
         "value": "int",
+        "nullable": true
+      }
+    },
+    "CSearchResult": {
+      "linkedin_profile_url": {
+        "type": "basic",
+        "value": "str",
+        "nullable": false
+      },
+      "profile": {
+        "type": "object",
+        "value": "LinkedinCompany",
+        "nullable": true
+      }
+    },
+    "CompanySearchResult": {
+      "results": {
+        "type": "object",
+        "value": "CSearchResult",
+        "nullable": false
+      },
+      "next_page": {
+        "type": "basic",
+        "value": "str",
         "nullable": true
       }
     },
