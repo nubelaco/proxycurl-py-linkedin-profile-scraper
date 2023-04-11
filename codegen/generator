@@ -17,7 +17,7 @@ class Cli():
                 )
 
         # generate TypedDict response model
-        self._generate_response_model(api_mapping['classes'])
+        self._generate_response_model(api_mapping)
 
         # generate namespace by concurrent type
         for concurrent_type in ['gevent', 'twisted', 'asyncio']:
