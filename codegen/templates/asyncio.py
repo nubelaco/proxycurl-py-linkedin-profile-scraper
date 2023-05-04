@@ -46,14 +46,16 @@ from proxycurl_py.models import (
 
         """
 
+        params = {}
+        {%- for param in options['params'] %}
+        if {{param}}:
+            params['{{param}}'] = {{param}}
+        {%- endfor %}
+
         resp = await self.linkedin.proxycurl.request(
             method='{{options['method']}}',
             url='{{options['endpoint']}}',
-            params={
-                {%- for param in options['params'] %}
-                '{{param}}': {{param}},
-                {%- endfor %}
-            },
+            params=params,
             data={
                 {%- for body in options['body'] %}
                 '{{body}}': {{body}},

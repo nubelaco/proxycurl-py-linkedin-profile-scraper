@@ -86,12 +86,20 @@ class Cli():
                         'required': False
                     }
                 })
-            else:
+            elif parameters[param]['required'] == True:
                 arr.insert(0, {
                     f'{param}': {
                         'type': type(parameters[param]['example']).__name__,
                         'description': self._normalize_description(parameters[param]['description']),
                         'required': True
+                    }
+                })
+            else:
+                arr.append({
+                    f'{param}': {
+                        'type': type(parameters[param]['example']).__name__,
+                        'description': self._normalize_description(parameters[param]['description']),
+                        'required': parameters[param]['required']
                     }
                 })
         for param in arr:
