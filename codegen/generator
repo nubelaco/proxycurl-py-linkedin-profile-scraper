@@ -5,11 +5,12 @@ import json
 import os
 import textwrap
 
+
 class Cli():
     def generate_code(self):
         with open('codegen/templates/api_mapping.json') as f1:
             api_mapping = json.load(f1)
-            with open(f'codegen/templates/linkedin_mapping.json') as f2:
+            with open('codegen/templates/linkedin_mapping.json') as f2:
                 source_mapping = json.load(f2)
                 namespaces = self._mapping_namespace(
                     api_mapping,
@@ -17,7 +18,10 @@ class Cli():
                 )
 
         # generate TypedDict response model
-        self._generate_response_model(api_mapping)
+        self._generate_response_model(
+            result_classes=api_mapping['classes'],
+            enums=api_mapping["enums"]
+        )
 
         # generate namespace by concurrent type
         for concurrent_type in ['gevent', 'twisted', 'asyncio']:
@@ -82,24 +86,25 @@ class Cli():
                     f'{param}': {
                         'type': type(parameters[param]['example']).__name__,
                         'description': self._normalize_description(parameters[param]['description']),
-                        'default': parameters[param]['default'],
+                        'default': '"{parameters[param]["default"]}"',
                         'required': False
                     }
                 })
-            elif parameters[param]['required'] == True:
+            elif parameters[param]["required"] is False:
+                arr.append({
+                    f'{param}': {
+                        'type': type(parameters[param]['example']).__name__,
+                        'description': self._normalize_description(parameters[param]['description']),
+                        'default': None,
+                        'required': False
+                    }
+                })
+            else:
                 arr.insert(0, {
                     f'{param}': {
                         'type': type(parameters[param]['example']).__name__,
                         'description': self._normalize_description(parameters[param]['description']),
                         'required': True
-                    }
-                })
-            else:
-                arr.append({
-                    f'{param}': {
-                        'type': type(parameters[param]['example']).__name__,
-                        'description': self._normalize_description(parameters[param]['description']),
-                        'required': parameters[param]['required']
                     }
                 })
         for param in arr:
@@ -108,13 +113,15 @@ class Cli():
 
     def _generate_response_model(
         self,
-        result_classes
+        result_classes,
+        enums
     ):
         with open('codegen/templates/response_model.py') as file:
             t_response_model = Template(file.read())
             t_response_model.stream(
-                result_classes=result_classes
-            ).dump(f"proxycurl_py/models.py")
+                result_classes=result_classes,
+                enums=enums
+            ).dump("proxycurl/models.py")
 
     def _generate_library(
         self,
@@ -125,18 +132,18 @@ class Cli():
             t_library = Template(file.read())
             t_library.stream(
                 ns_data=namespaces
-            ).dump(f"proxycurl_py/{concurrent_type}/library.py")
+            ).dump(f"proxycurl/{concurrent_type}/library.py")
 
     def _generate_init(
         self,
         concurrent_type: str,
     ):
-        folder = f"proxycurl_py/{concurrent_type}"
+        folder = f"proxycurl/{concurrent_type}"
         if not os.path.isdir(folder):
             os.mkdir(folder)
         with open('codegen/templates/init.py') as file:
             t = Template(file.read())
-            t.stream().dump(f'proxycurl_py/{concurrent_type}/__init__.py')
+            t.stream().dump(f'proxycurl/{concurrent_type}/__init__.py')
 
     def _normalize_description(self, description):
         text_no_indent = textwrap.dedent(description)

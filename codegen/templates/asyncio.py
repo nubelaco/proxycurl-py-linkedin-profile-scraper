@@ -2,11 +2,11 @@ from typing import (
     Awaitable,
     Optional
 )
-from proxycurl_py.config import (
+from proxycurl.config import (
     BASE_URL, PROXYCURL_API_KEY, TIMEOUT, MAX_RETRIES, MAX_BACKOFF_SECONDS
 )
-from proxycurl_py.asyncio.base import ProxycurlBase
-from proxycurl_py.models import (
+from proxycurl.asyncio.base import ProxycurlBase
+from proxycurl.models import (
     {%- for namespace in ns_data %}
     {%- for result_class in ns_data[namespace]['result_classes'] %}
     {{result_class}},
@@ -19,7 +19,7 @@ from proxycurl_py.models import (
     async def {{action}}(
         self,
         {%- for param in options['params'] %}
-        {{param}}: {{options['params'][param]['type']}}{% if options['params'][param]['required'] == False %} = '{{options['params'][param]['default']}}'{% endif %},
+        {{param}}: {{options['params'][param]['type']}}{% if options['params'][param]['required'] == False %} = {{options['params'][param]['default']}}{% endif %},
         {%- endfor %}
         {%- for body in options['body'] %}
         {{body}}: {{options['body'][body]['type']}}{% if options['body'][body]['default'] %} = '{{options['body'][body]['default']}}'{% endif %},
@@ -48,8 +48,12 @@ from proxycurl_py.models import (
 
         params = {}
         {%- for param in options['params'] %}
-        if {{param}}:
-            params['{{param}}'] = {{param}}
+        {%- if not options['params'][param]['required'] %}
+        if {{ param }} is not None:
+            params['{{param}}'] = {{ param }}
+        {%- else %}
+        params['{{param}}'] = {{ param }}
+        {%- endif %}
         {%- endfor %}
 
         resp = await self.linkedin.proxycurl.request(
