@@ -4,7 +4,7 @@ version = "0.1.0.post1"
 description = ""
 authors = ["Nubela <tech@nubela.co>"]
 packages = [
-    { include = "proxycurl_py" },
+    { include = "proxycurl" },
 ]
 readme = "README.md"
 
