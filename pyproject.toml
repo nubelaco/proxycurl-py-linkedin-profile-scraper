@@ -1,31 +1,30 @@
 [tool.poetry]
-name = "proxycurl_py"
-version = "0.0.22"
+name = "proxycurl-py"
+version = "0.1.0.post1"
 description = ""
-readme = "README.md"
 authors = ["Nubela <tech@nubela.co>"]
 packages = [
-    { include = "proxycurl_py"}
+    { include = "proxycurl_py" },
 ]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7"
 
-gevent = { version = "^21.1.1", optional = true }
+gevent = { version = "^22.10.2", optional = true }
 requests = { version = "^2.25.0", optional = true }
-asyncio = { version = "^3.4.3", optional = true }
 aiohttp = { version = "^3.7.4", optional = true }
 Twisted = { version = "^21.7.0", optional = true }
 treq = { version = "^21.5.0", optional = true }
 
 [tool.poetry.extras]
 gevent = ["gevent", "requests"]
-asyncio = ["asyncio", "aiohttp"]
+asyncio = ["aiohttp"]
 twisted = ["Twisted", "treq"]
 
 [tool.poetry.dev-dependencies]
 Jinja2 = "^3.0.1"
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
