@@ -1,4 +1,4 @@
-from proxycurl_py.twisted import Proxycurl, do_bulk
+from proxycurl.twisted import Proxycurl, do_bulk
 from twisted.internet import reactor
 from twisted.internet.defer import inlineCallbacks
 import csv
@@ -12,7 +12,7 @@ def main():
 
 
     person = yield proxycurl.linkedin.person.get(
-        url='https://sg.linkedin.com/in/williamhgates'
+        linkedin_profile_url='https://sg.linkedin.com/in/williamhgates'
     )
 
     print('Person:', person)
@@ -30,7 +30,7 @@ def main():
         next(reader, None)
         for row in reader:
             bulk_linkedin_person_data.append(
-                (proxycurl.linkedin.person.get, {'url': row[0]})
+                (proxycurl.linkedin.person.get, {'linkedin_profile_url': row[0]})
             )
     bulk = yield do_bulk(bulk_linkedin_person_data)
 

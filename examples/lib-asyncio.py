@@ -1,5 +1,5 @@
 import asyncio
-from proxycurl_py.asyncio import Proxycurl, do_bulk
+from proxycurl.asyncio import Proxycurl, do_bulk
 import csv
 
 proxycurl = Proxycurl()
@@ -10,7 +10,7 @@ balance = asyncio.run(proxycurl.get_balance())
 print('Balance:', balance)
 
 person = asyncio.run(proxycurl.linkedin.person.get(
-    url='https://sg.linkedin.com/in/williamhgates'
+    linkedin_profile_url='https://sg.linkedin.com/in/williamhgates'
 ))
 
 print('Person Result:', person)
@@ -28,7 +28,7 @@ with open('sample.csv', 'r') as file:
     next(reader, None)
     for row in reader:
         bulk_linkedin_person_data.append(
-            (proxycurl.linkedin.person.get, {'url': row[0]})
+            (proxycurl.linkedin.person.get, {'linkedin_profile_url': row[0]})
         )
 results = asyncio.run(do_bulk(bulk_linkedin_person_data))
 
