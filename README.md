@@ -43,7 +43,7 @@ The right way to use Proxycurl API is to make API calls concurrently. In fact, m
 
 ## Installation and supported Python versions
 
-`proxycurl-py` is [available on PyPi](https://pypi.org/project/proxycurl/). For which you can install into your project with the following command:
+`proxycurl-py` is [available on PyPi](https://pypi.org/project/proxycurl-py/). For which you can install into your project with the following command:
 
 ```bash
 # install proxycurl-py with asyncio
@@ -81,7 +81,7 @@ Forexamples with other concurrency models such as:
 Given a *LinkedIn Member Profile URL*, you can get the entire profile back in structured data with Proxycurl's [Person Profile API Endpoint](https://nubela.co/proxycurl/docs#people-api-person-profile-endpoint).
 
 ```python
-from proxycurl_py.asyncio import Proxycurl, do_bulk
+from proxycurl.asyncio import Proxycurl, do_bulk
 import asyncio
 import csv
 
