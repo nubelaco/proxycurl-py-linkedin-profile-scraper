@@ -1,6 +1,6 @@
 from twisted.internet import defer, reactor
 from twisted.internet.defer import Deferred, inlineCallbacks
-from proxycurl_py.config import MAX_WORKERS
+from proxycurl.config import MAX_WORKERS
 import treq
 from dataclasses import dataclass
 from typing import (
