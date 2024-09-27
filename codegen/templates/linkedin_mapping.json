@@ -3,7 +3,7 @@
         "endpoint": "/proxycurl/api/v2/linkedin"
     },
     "linkedin.person.search": {
-        "endpoint": "/proxycurl/api/search/person"
+        "endpoint": "/proxycurl/api/v2/search/person"
     },
     "linkedin.person.resolve": {
         "endpoint": "/proxycurl/api/linkedin/profile/resolve"
@@ -30,7 +30,7 @@
         "endpoint": "/proxycurl/api/linkedin/company"
     },
     "linkedin.company.search": {
-        "endpoint": "/proxycurl/api/search/company"
+        "endpoint": "/proxycurl/api/v2/search/company"
     },
     "linkedin.company.resolve": {
         "endpoint": "/proxycurl/api/linkedin/company/resolve"

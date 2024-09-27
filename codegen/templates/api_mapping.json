@@ -162,7 +162,7 @@
         }
       }
     },
-    "/proxycurl/api/search/company": {
+    "/proxycurl/api/v2/search/company": {
       "method": "GET",
       "title": "Company Search Endpoint",
       "docstring": "Cost: 35 credits / successful request base charge.\nSearch for companies that meet a set of criteria within\n    our exhaustive dataset of company profiles.\n\n    This API endpoint is powered by [LinkDB](https://nubela.co/proxycurl/linkdb), our exhaustive dataset of company profiles.\n\n    This API endpoint can return at most of 10,000 results per search.",
@@ -697,7 +697,7 @@
         }
       }
     },
-    "/proxycurl/api/search/person": {
+    "/proxycurl/api/v2/search/person": {
       "method": "GET",
       "title": "Person Search Endpoint",
       "docstring": "Cost: 35 credits / successful request base charge.\nSearch for people who meet a set of criteria within our exhaustive dataset of people profiles.\n\nThis API endpoint is powered by [LinkDB](https://nubela.co/proxycurl/linkdb), our exhaustive dataset of people and company profiles.\n\nThis API endpoint can return at most 10,000 results per search.",

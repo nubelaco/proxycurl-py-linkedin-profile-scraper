@@ -546,7 +546,7 @@ class _LinkedinPerson:
 
         return self.linkedin.proxycurl.request(
             method='GET',
-            url='/proxycurl/api/search/person',
+            url='/proxycurl/api/v2/search/person',
             params=params,
             data={
             },
@@ -1194,7 +1194,7 @@ class _LinkedinCompany:
 
         return self.linkedin.proxycurl.request(
             method='GET',
-            url='/proxycurl/api/search/company',
+            url='/proxycurl/api/v2/search/company',
             params=params,
             data={
             },
