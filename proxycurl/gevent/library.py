@@ -231,6 +231,7 @@ class _LinkedinPerson:
         public_identifier_not_in_list: str = None,
         page_size: str = None,
         enrich_profiles: str = None,
+        after: str = None,
     ) -> PersonSearchResult:
         """Person Search Endpoint
         
@@ -543,6 +544,8 @@ class _LinkedinPerson:
             params['page_size'] = page_size
         if enrich_profiles is not None:
             params['enrich_profiles'] = enrich_profiles
+        if after is not None:
+            params['after'] = after
 
         return self.linkedin.proxycurl.request(
             method='GET',
@@ -1045,6 +1048,7 @@ class _LinkedinCompany:
         city: str = None,
         region: str = None,
         country: str = None,
+        after: str = None,
     ) -> CompanySearchResult:
         """Company Search Endpoint
         
@@ -1191,6 +1195,8 @@ class _LinkedinCompany:
             params['region'] = region
         if country is not None:
             params['country'] = country
+        if after is not None:
+            params['after'] = after
 
         return self.linkedin.proxycurl.request(
             method='GET',
@@ -1509,6 +1515,7 @@ class _LinkedinCompany:
         employment_status: str = None,
         sort_by: str = None,
         resolve_numeric_id: str = None,
+        after: str = None,
     ) -> EmployeeList:
         """Employee Listing Endpoint
         
@@ -1603,6 +1610,8 @@ class _LinkedinCompany:
             params['sort_by'] = sort_by
         if resolve_numeric_id is not None:
             params['resolve_numeric_id'] = resolve_numeric_id
+        if after is not None:
+            params['after'] = after
 
         return self.linkedin.proxycurl.request(
             method='GET',
@@ -1621,6 +1630,7 @@ class _LinkedinCompany:
         country: str = None,
         enrich_profiles: str = None,
         resolve_numeric_id: str = None,
+        after: str = None,
     ) -> EmployeeList:
         """Employee Search Endpoint
         
@@ -1684,6 +1694,8 @@ class _LinkedinCompany:
             params['enrich_profiles'] = enrich_profiles
         if resolve_numeric_id is not None:
             params['resolve_numeric_id'] = resolve_numeric_id
+        if after is not None:
+            params['after'] = after
 
         return self.linkedin.proxycurl.request(
             method='GET',
@@ -1980,6 +1992,7 @@ class _LinkedinCustomers:
         linkedin_company_profile_url: str = None,
         twitter_profile_url: str = None,
         page_size: str = None,
+        after: str = None,
     ) -> CustomerList:
         """Customer Listing Endpoint
         
@@ -2018,6 +2031,8 @@ class _LinkedinCustomers:
             params['twitter_profile_url'] = twitter_profile_url
         if page_size is not None:
             params['page_size'] = page_size
+        if after is not None:
+            params['after'] = after
 
         return self.linkedin.proxycurl.request(
             method='GET',
