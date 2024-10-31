@@ -185,7 +185,7 @@ class _LinkedinPerson:
 
     def search(
         self,
-        country: str,
+        country: str = None,
         first_name: str = None,
         last_name: str = None,
         education_field_of_study: str = None,
@@ -453,7 +453,8 @@ class _LinkedinPerson:
 
         """
         params = {}
-        params['country'] = country
+        if country is not None:
+            params['country'] = country
         if first_name is not None:
             params['first_name'] = first_name
         if last_name is not None:
