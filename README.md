@@ -87,7 +87,7 @@ import csv
 
 proxycurl = Proxycurl()
 person = asyncio.run(proxycurl.linkedin.person.get(
-    url='https://www.linkedin.com/in/williamhgates/'
+    linkedin_profile_url='https://www.linkedin.com/in/williamhgates/'
 ))
 print('Person Result:', person)
 ```
