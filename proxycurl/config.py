@@ -4,7 +4,7 @@ from os import environ
 _ = environ.get
 
 
-BASE_URL = _("BASE_URL", "https://nubela.co")
+BASE_URL = _("BASE_URL", "https://enrichlayer.com/api/v2")
 PROXYCURL_API_KEY = _("PROXYCURL_API_KEY", "")
 TIMEOUT = _("TIMEOUT", 90)
 MAX_RETRIES = _("MAX_RETRIES", 2)
